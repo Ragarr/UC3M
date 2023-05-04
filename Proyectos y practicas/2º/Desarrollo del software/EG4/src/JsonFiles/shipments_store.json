@@ -1,0 +1,16 @@
+[
+  {
+    "_OrderShipping__json_content": {
+      "OrderID": "4f5ff74ce8c5aa97f9675dbd44035d9d",
+      "ContactEmail": "jllopez@inf.uc3m.es"
+    },
+    "_OrderShipping__order_id": "4f5ff74ce8c5aa97f9675dbd44035d9d",
+    "_OrderShipping__delivery_email": "jllopez@inf.uc3m.es",
+    "_OrderShipping__alg": "SHA-256",
+    "_OrderShipping__type": "DS",
+    "_OrderShipping__product_id": "8421691423220",
+    "_OrderShipping__issued_at": 1678233600.0,
+    "_OrderShipping__delivery_day": 1678838400.0,
+    "_OrderShipping__tracking_code": "847dfd443d86c9c222242010c11a44bd9a09c37b42b6e956db97ba173abefe83"
+  }
+]

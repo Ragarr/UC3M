@@ -1,0 +1,37 @@
+--Cada vez que se inserte una interpretación de una canción en un concierto, se debe
+--actualizar la duración concierto sumando la duración de ese tema (opcionalmente, se
+--pueden observar borrados y modificaciones de interpretaciones existentes).
+DROP TABLE TMP_CONCERTS CASCADE CONSTRAINTS;
+CREATE GLOBAL TEMPORARY TABLE TMP_CONCERTS (
+    oldref INTEGER,
+    newref INTEGER
+);
+CREATE OR REPLACE TRIGGER TR_UPDATE_DURATION_CONCERT_1 
+    BEFORE INSERT OR UPDATE OF DURATION ON CONCERTS
+    FOR EACH ROW
+BEGIN
+    INSERT INTO TMP_CONCERTS VALUES (:OLD.DURATION, :NEW.DURATION); 
+END;
+/
+CREATE OR REPLACE TRIGGER TR_UPDATE_CONCERT_DURATION_2 
+    AFTER INSERT OR UPDATE ON PERFORMANCES 
+    FOR EACH ROW 
+    BEGIN 
+        FOR row IN (SELECT * FROM TMP_CONCERTS) LOOP 
+            UPDATE CONCERTS SET DURATION = row.newref + :NEW.duration WHERE 
+            performer = :NEW.performer AND
+            when = :NEW.when;
+        END LOOP;
+END;
+/
+-- CASOS DE PRUEBA:
+INSERT INTO CONCERTS VALUES ('Manuel', TO_DATE('01/01/1963', 'DD/MM/YY'), NULL, 'Colmenarejo', NULL, NULL, 10, 0, 555354682);
+INSERT INTO PERFORMANCES VALUES('Manuel', TO_DATE('01/01/1963', 'DD/MM/YY'), 001, 'Shoo', 'SE>>0572037422', 300);
+INSERT INTO PERFORMANCES VALUES('Manuel', TO_DATE('01/01/1963', 'DD/MM/YY'), 002, 'Nice', 'SE>>0903278042', 300);
+INSERT INTO PERFORMANCES VALUES('Manuel', TO_DATE('01/01/1963', 'DD/MM/YY'), 003, 'Nice', 'SE>>0903278042', 400);
+INSERT INTO PERFORMANCES VALUES('Manuel', TO_DATE('01/01/1963', 'DD/MM/YY'), 004, 'Nice', 'SE>>0903278042', 400);
+SELECT * FROM CONCERTS WHERE (PERFORMER = 'Manuel' AND WHEN = TO_DATE('01/01/1963','DD/MM/YY'));
+-- Restauramos la base de datos una vez confirmada la correcta ejecución de nuestro trigger:
+DELETE FROM CONCERTS WHERE (PERFORMER = 'Manuel' AND WHEN = TO_DATE('01/01/1963','DD/MM/YY'));
+DELETE FROM PERFORMANCES WHERE (PERFORMER = 'Manuel' AND WHEN = TO_DATE('01/01/1963','DD/MM/YY') AND SEQU = 001);
+DELETE FROM PERFORMANCES WHERE (PERFORMER = 'Manuel' AND WHEN = TO_DATE('01/01/1963','DD/MM/YY') AND SEQU = 002);
