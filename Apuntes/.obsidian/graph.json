@@ -1,0 +1,30 @@
+{
+  "collapse-filter": false,
+  "search": "-path:Excalidraw -path:zObsidian",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "path:\"Ficheros y BBDD\"",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": -0.6,
+  "nodeSizeMultiplier": 1.45260416666667,
+  "lineSizeMultiplier": 2.72864583333333,
+  "collapse-forces": false,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 13.125,
+  "linkStrength": 1,
+  "linkDistance": 155,
+  "scale": 0.5044887967123911,
+  "close": false
+}

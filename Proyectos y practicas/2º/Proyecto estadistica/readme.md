@@ -1,0 +1,1 @@
+Este proyecto es para estudiar el uso de r y su aplicacion en el analisis de datos. Esta desarrollado en coautoria con [@seniorbeto](https://github.com/seniorbeto)

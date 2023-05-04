@@ -1,0 +1,35 @@
+{
+  "promptDelete": false,
+  "tabSize": 4,
+  "spellcheckLanguages": [
+    "es",
+    "en"
+  ],
+  "spellcheck": false,
+  "rightToLeft": false,
+  "showLineNumber": true,
+  "strictLineBreaks": false,
+  "alwaysUpdateLinks": true,
+  "spellcheckDictionary": [
+    "tuplas",
+    "BD",
+    "refactoring",
+    "Refactoriza",
+    "Desproyección",
+    "Pseudoparalelismo",
+    "and",
+    "swap",
+    "threads",
+    "wait",
+    "sem_post",
+    "sem_t",
+    "sem",
+    "signal",
+    "Mutex",
+    " unloc",
+    " loc",
+    "mutex",
+    "unlock",
+    "lock"
+  ]
+}

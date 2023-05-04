@@ -1,0 +1,49 @@
+## boxplot de la esperanza de vida
+```{r}
+ggplot(data, aes(x = life_expect)) +
+    geom_boxplot()
+```
+
+## histograma de la esperanza de vida con linea de distribucion normal
+```{r}
+ggplot(data, aes(x = life_expect)) +
+    geom_histogram(binwidth = 1, fill = "blue", alpha = 0.5) +
+    stat_function(
+        fun = function(x) {
+            dnorm(x,
+                mean = mean(data$life_expect),
+                sd = sd(data$life_expect)
+            ) * nrow(data)
+        },
+        color = "darkred", size = 1
+    ) +
+    labs(
+        title = "Histograma de la esperanza de vida",
+        x = "Esperanza de vida",
+        y = "Frecuencia"
+    )
+```
+
+## boxplot de la esperanza de vida con datos completos
+```{r}
+ggplot(data_filled, aes(x = life_expect)) +
+    geom_boxplot()
+```
+
+# plot life_expect vs alcohol
+```{r}
+ggplot(data, aes(y = life_expect, x = alcohol)) +
+    geom_point() + geom_smooth()
+```
+# plot life_expect vs alcohol on developed countries
+```{r}
+developed <- subset(data, status == "Developed")
+ggplot(developed, aes(y = life_expect, x = alcohol)) +
+    geom_point() + geom_smooth(method = "gam")
+```
+# plot life_expect vs alcohol on developing countries
+```{r}
+developing <- subset(data, status == "Developing")
+ggplot(developing, aes(y = life_expect, x = alcohol)) +
+    geom_point() + geom_smooth()
+```
