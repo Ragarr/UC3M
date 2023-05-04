@@ -1,0 +1,24 @@
+    int horas, minutos, segundos;
+	segundos = mytime / 1000;	// pasar de milisegundos a segundos
+	horas = segundos / 3600;
+	segundos -= horas * 3600;
+	minutos = segundos / 60;
+	segundos -= minutos * 60;
+	char* imprimir = (char*)malloc(strlen("HH:MM:SS\n"));
+	char Horas[2];
+	char Minutos[2];
+	char Segundos[2];
+
+	sprintf(Horas, "%d", horas);
+	sprintf(Minutos, "%d", minutos);
+	sprintf(Segundos, "%d", segundos);
+	strcat(imprimir, Horas);
+	strcat(imprimir, ":");
+	strcat(imprimir, Minutos);
+	strcat(imprimir, ":");
+	strcat(imprimir, Segundos);
+	strcat(imprimir, "\n");
+
+	write (STDERR_FILENO, imprimir, strlen(imprimir));
+	free(imprimir);
+	return 0;

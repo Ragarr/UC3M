@@ -1,0 +1,12 @@
+total 96
+-rw-rw-r-- 1 defalco defalco   100 abr  8 15:56 autores.txt
+-rw-rw-r-- 1 defalco defalco     0 abr  8 15:56 file1.txt
+-rw-rw-r-- 1 defalco defalco 21136 abr  8 15:56 libparser.so
+-rw-rw-r-- 1 defalco defalco   251 abr  8 15:56 Makefile
+-rwxrwxr-x 1 defalco defalco 21784 abr  
+findme
+8 16:43 msh
+-rw-rw-r-- 1 defalco defalco 12060 abr  8 16:43 msh.c
+-rw-rw-r-- 1 defalco defalco 12832 abr  8 16:43 msh.o
+-rw-rw-r-- 1 defalco defalco 12262 abr  8 15:56 probador_ssoo_p2.sh
+-rw-rw-r-- 1 defalco defalco     0 abr  8 16:45 test.txt
