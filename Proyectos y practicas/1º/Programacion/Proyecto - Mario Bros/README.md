@@ -8,13 +8,13 @@ Se trata de una copia del primer nivel del mario bros original, hecho en python 
 **SUPER MARIO BROS**
  **POR CARLOS SEGUÍ  Y  RAÚL  AGUILAR**
 **MEMORIA**
-![portada](https://github.com/Ragarr/CaneriasMariano/blob/main/readme%20assets/portada.png?raw=true)
+![portada](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/portada.png?raw=true)
 # Diseño de clases
 
 Hemos dividido cada clase en una carpeta, y cada subclase en un archivo dentro de dicha carpeta.
 
 Las clases se dividen en 6 superclases:
-![arbol de clases](https://github.com/Ragarr/CaneriasMariano/blob/main/readme%20assets/estructura.png?raw=true)
+![arbol de clases](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/estructura.png?raw=true)
 - game
 - atrezzo
 - bloque
@@ -28,14 +28,15 @@ Es la clase principal, así mismo es el único archivo que debe ser ejecutado. L
 
 ### Update
 
-El método tiene tres preguntas para distinguir si nos encontramos en el menú de inicio, en el de muerte o en el propio nivel. Si nos encontramos en el menú de muerte y pulsamos intro llamara al método reset\_level(), a no ser que hayamos perdido todas las vidas en cuyo caso llamara al método reset\_game(). Cuando se realiza la ejecución del nivel llama a métodos propios de cada clase que actualizan el estado de todos los objetos. Además ejecuta el método mantener\_jugador\_en\_pantalla() y borrar\_entidades()
+El método tiene tres preguntas para distinguir si nos encontramos en el menú de inicio, en el de muerte o en el propio nivel. Si nos encontramos en el menú de muerte y pulsamos intro llamara al método `reset_level()`, a no ser que hayamos perdido todas las vidas en cuyo caso llamara al método `reset_game()`. Cuando se realiza la ejecución del nivel llama a métodos propios de cada clase que actualizan el estado de todos los objetos. Además ejecuta el método `mantener_jugador_en_pantalla()` y `borrar\_entidades()`
 
 ### Draw
 
 Se encarga de dibujar todo en pantalla. Sigue las mismas tres preguntas que update para dibujar los menús o el nivel. Cuando dibuja el nivel, por optimización, solo dibuja los elementos que hay en el visor, para ello utiliza la pregunta
 
-if not self.item\_a\_dibujar[i].coord[0]\&gt;1.5\*pyxel.width:
-
+```python
+if not self.item_a_dibujar[i].coord[0]>1.5*pyxel.width:
+```
 para determinar si el elemento esta dentro o cerca del visor y dibujarlo y después va dibujando elemento a elemento mediante bucles for. Tambien tiene un apartado especial para dibujar al jugador y a los efectos de la estrella si es que tuviera. Por ultimo dibuja la interfaz.
 
 ### Generar\_suelo, objetos, atrezzo, bloques y npcs
@@ -44,18 +45,18 @@ Son 5 metodos distintos encargados de crear una lista con las posiciones de los 
 
 ### Mantener jugador en pantalla y desplazar nivel
 
-Detecta las coordenadas del jugador para que en caso de llegue a la mitad de la pantalla llamara al método desplazar\_nivel() para transmitir su movimiento a los demás objetos (modificando sus coordenadas) haciendo así que el nivel se mueva a su alrededor.
+Detecta las coordenadas del jugador para que en caso de llegue a la mitad de la pantalla llamara al método `desplazar_nivel()` para transmitir su movimiento a los demás objetos (modificando sus coordenadas) haciendo así que el nivel se mueva a su alrededor.
 
 ### Redondear
-![](https://github.com/Ragarr/CaneriasMariano/blob/main/readme%20assets/FRAMING.PNG)
-![](https://github.com/Ragarr/CaneriasMariano/blob/main/readme%20assets/NOT%20FARAMING.PNG)
-Al trabajar con velocidades decimales obtenemos una mejor sensación de juego, como por ejemplo con las inercias, la suavidad del salto, etc. Sin embargo esto significa que existen las coordenadas decimales y al dibujarse se aproximan a enteros, el método round de Python presenta el problema de que no siempre aproxima igual, ej: round(1.5)=2 y round(2.5)=2 cuando desearíamos un resultado más consistente que redondeara siempre hacia abajo (o arriba) a partir del 0.5, por lo tanto creamos este método que haciendo uso de round y restando un número muy pequeño permite aproximar los valores de forma consistente evitando que se formen huecos que a pesar de ser únicamente visuales no son nada estéticos.
+![](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/FRAMING.PNG)
+![](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/NOT%20FARAMING.PNG)
+Al trabajar con velocidades decimales obtenemos una mejor sensación de juego, como por ejemplo con las inercias, la suavidad del salto, etc. Sin embargo esto significa que existen las coordenadas decimales y al dibujarse se aproximan a enteros, el método ``round`` de Python presenta el problema de que no siempre aproxima igual, ej: ``round(1.5)=2`` y ``round(2.5)=2`` cuando desearíamos un resultado más consistente que redondeara siempre hacia abajo (o arriba) a partir del 0.5, por lo tanto creamos este método que haciendo uso de round y restando un número muy pequeño permite aproximar los valores de forma consistente evitando que se formen huecos que a pesar de ser únicamente visuales no son nada estéticos.
 
 Sin método redondear. Con método redondear.
 
 ### Reset level y game
 
-Estos métodos reinician respectivamente el nivel y el juego, al reiniciar el nivel el jugador conserva únicamente sus vidas y al reiniciar el juego no se conserva nada, creamos un método reiniciar juego en vez de volver a llamar al \_\_init\_\_ de game ya que esto hacia que se reiniciara pyxel y se crearan mas ventanas, dando muchos problemas.
+Estos métodos reinician respectivamente el nivel y el juego, al reiniciar el nivel el jugador conserva únicamente sus vidas y al reiniciar el juego no se conserva nada, creamos un método reiniciar juego en vez de volver a llamar al ``__init__`` de game ya que esto hacia que se reiniciara pyxel y se crearan mas ventanas, dando muchos problemas.
 
 ### Borrar entidades
 
@@ -66,19 +67,19 @@ Se encarga de borrar todos los elementos que desaparecen (bloques, objetos, npcs
 Son los elementos de fondo como montañas, nubes y arbustos. No tienen ningún tipo de colisión ni comportamiento, solo tienen estructura dividida en dos parámetros, su sprite y sus coordenadas.
 
 ## Bloques
-![](https://github.com/Ragarr/CaneriasMariano/blob/main/readme%20assets/animacion-bloque.gif)
+![](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/animacion-bloque.gif)
 
 Consta de 7 subclases; escalera, interrogación, ladrillo con monedas, ladrillo rompible, suelo y tubería. Todos los bloques tienen en común los atributos de coordenadas, coordenadas iniciales(se usa para animaciones), sprite, ancho, alto, velocidad en y y existe (un booleano que sirve como marca para los bloques que deben ser eliminados). Todos los bloques cuentan con el método reposicionar, que les permite desplazarse un máximo de dos pixeles en el eje y a partir de las coordenadas iniciales.
 
 ### Escalera y tubería
-![](https://github.com/Ragarr/CaneriasMariano/blob/main/readme%20assets/TUBERIAS.png)
+![](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/TUBERIAS.png)
 
 Se comportan igual, y lo único que tienen de especial es que tienen una altura variable que se debe introducir mediante un parámetro.
 
 En la imagen ambas son la misma clase tubería pero con alturas diferentes.
 
 ### Interrogación
-![](https://github.com/Ragarr/CaneriasMariano/blob/main/readme%20assets/interrogacion.png)
+![](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/interrogacion.png)
 
 Tiene un parámetro que indica si tiene monedas u objetos, si tiene monedas otorga un numero al azar de ellas entre 1 y 6, además tiene unos frames de invulnerabilidad después de haber sido golpeado para no poder sacar todas las monedas de un solo salto, cuando se consumen todas las monedas cambia su sprite al de la derecha. Si tiene objetos otorgara una seta si lo golpea Mario o una flor de fuego si lo golpea Super Mario.
 
@@ -94,9 +95,10 @@ Es un bloque normal sin nada en especial que tiene la textura del suelo.
 
 Son aquellos objetos que tienen un movimiento y colisiones propias. Además influyen directamente en el estado del jugador.
 
-### ChamPi y flor
+### Chami, flor y seta verde
+Champi tiene un movimiento que consiste en saltar una vez cuando aparece y luego deslizarse, al colisionar lateralmente con escaleras y tuberías (los únicos bloques que aparecen al nivel del suelo) rebota, esta distinción se hace ya que si no golpea en bucle al colisionar con el suelo. Flor no tiene mas movimiento que un pequeño salto al aparecer. Ambos bloques interactúan con el jugador, cambiando su estado de Mario->Super Mario->Mario Fuego.
 
-Champi tiene un movimiento que consiste en saltar una vez cuando aparece y luego deslizarse, al colisionar lateralmente con escaleras y tuberías (los únicos bloques que aparecen al nivel del suelo) rebota, esta distinción se hace ya que si no golpea en bucle al colisionar con el suelo. Flor no tiene mas movimiento que un pequeño salto al aparecer. Ambos bloques interactúan con el jugador, cambiando su estado de Mario-\&gt;Super Mario-\&gt;Mario Fuego.
+La seta verde tiene el mismo comportamiento que el champi salvo que otorga una vida extra
 
 ### Fireball y estrella
 
@@ -138,15 +140,17 @@ El método colisionar() en general es un método auxiliar que se usa en todos lo
 
 El método detectar botones detecta las teclas y le transmite velocidad al jugador, también detecta cuando no se pulsa nada para aplicar el coeficiente de rozamiento al jugador(esto hace que frene de una manera muy natural y no en seco).
 
-Los métodos actualizar\_animaciones. Coger\_bandera, Fase1\_bandera y fase2\_bandera son métodos de animaciones que únicamente cambian el sprite del jugador para que se adapte a si esta andando saltando o deslizándose por la bandera. Funcionan mediante basicamente
+Los métodos actualizar_animaciones. ``Coger_bandera``, ``Fase1_bandera`` y ``fase2_bandera`` son métodos de animaciones que únicamente cambian el sprite del jugador para que se adapte a si esta andando saltando o deslizándose por la bandera. Funcionan mediante basicamente
 
-if pyxel.frame\_count % (c.fps/un\_numero) == 0: cambiar sprite
+```python
+if pyxel.frame_count % (c.fps/un_numero) == 0: cambiar sprite
+```
 
 que hace que se vayan alternando los sprites cada n fotogramas, tambien se detecta si la velocidad del jugador y hacia donde mira no coincide para derrapar y si estas saltando para poner el sprite de salto.
 
 Lanzar fuego simplemente añade a la lista de objetos una bola de fuego en la dirección a la que estes mirando.
 
-Por último el método reset\_state reinicia los atributos que deben reiniciarse al comienzo del nivel y al morir.
+Por último el método ``reset_state`` reinicia los atributos que deben reiniciarse al comienzo del nivel y al morir.
 
 # Trabajo realizado
 
@@ -170,9 +174,9 @@ También hemos incluido una animación al inicio del juego, la bandera al final 
 
 ## Organización del trabajo
 
-Antes de comenzar el proyecto decidimos que para trabajar colaborativamente usaríamos un repositorio de GitHub. En un principio nos costó aprender a usar los repositorios sin embargo una vez entendido lo más básico descubrimos que son muy convenientes y útiles
+Antes de comenzar el proyecto decidimos que para trabajar colaborativamente usaríamos un repositorio de GitHub. En un principio nos costó aprender a usar los repositorios sin embargo una vez entendido lo más básico descubrimos que son muy convenientes y útiles.
 
-![](RackMultipart20211211-4-1bh9jw6_html_47f22a3cf2edcf88.png)En el aprovechamos la función de proyectos de GitHub para crear unos diagramas de trabajo que nos ayudaron a mejorar la organización y distribuirnos el trabajo correctamente, además al usar GitHub existe la ventaja de que sabemos que cambios ha hecho la otra persona para entender mejor su codigo.
+En el aprovechamos la función de proyectos de GitHub para crear unos diagramas de trabajo que nos ayudaron a mejorar la organización y distribuirnos el trabajo correctamente, además al usar GitHub existe la ventaja de que sabemos que cambios ha hecho la otra persona para entender mejor su codigo.
 
 Además el control de cambios nos ayudo mucho a corregir errores y localizar cambios erróneos.
 
@@ -189,7 +193,7 @@ El principal problema que hemos encontrado en el desarrollo del juego fue hacer 
 La interacción de las animaciones con las colisiones nos ha dado bastantes problemas en general, sobre todo en las setas y demás objetos que aparecen dentro de bloques
 
 ### Menú
-```
+``` py
 class game():
 	...
 class menú(game):
