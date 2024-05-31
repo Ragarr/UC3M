@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.x": "c",
+        "rpc_logger.h": "c"
+    }
+}
