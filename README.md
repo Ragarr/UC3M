@@ -13,5 +13,8 @@ Un lugar para almacenar todos mis recursos de la carrera de **ingeniería inform
     - [Proyecto de estadistica](https://github.com/Ragarr/UC3M/tree/main/Proyectos%20y%20practicas/2%C2%BA/Proyecto%20estadistica)
     - [Proyectos de C de SSOO](https://github.com/Ragarr/UC3M/tree/main/Proyectos%20y%20practicas/2%C2%BA/Sistemas%20operativos)
     - [Proyecto de inteligencia artificial](https://github.com/Ragarr/UC3M/tree/main/Proyectos%20y%20practicas/2%C2%BA/Inteligencia%20Artificial/Proyecto)
-  - 3º 
-    - mientras lo este cursando nada, cuando termine el 1º cuatri lo subire
+  - 3º
+    - [Proyecto de SSIIUU, Aplicacion de compra ubicua en gran superficie]()
+    - [Proyecto de SSDD, Sistema p2p tipo torrent]()
+    - [Practica 1 AA, prediccion de produccion eolica]()
+    - [Practica 2 AA, Agrupacion de tipos de estrellas]()
