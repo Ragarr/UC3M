@@ -21,3 +21,4 @@ Un lugar para almacenar todos mis recursos de la carrera de **ingeniería inform
     - [Practica 1 AA, prediccion de produccion eolica](https://github.com/Ragarr/UC3M/tree/main/Proyectos%20y%20practicas/3%C2%BA/AA/Practica%201%20AA)
     - [Practica 2 AA, Agrupacion de tipos de estrellas](https://github.com/Ragarr/UC3M/tree/main/Proyectos%20y%20practicas/3%C2%BA/AA/Practica%202%20AA)
     - [Practica 1 y 2 de Procesadores del Lenguaje](https://github.com/Ragarr/UC3M/tree/main/Proyectos%20y%20practicas/3%C2%BA/PL)
+    - [Pactica 1 de SSIIUU, Inemuri](https://ragarr.github.io/Lab1-Inemuri/)
