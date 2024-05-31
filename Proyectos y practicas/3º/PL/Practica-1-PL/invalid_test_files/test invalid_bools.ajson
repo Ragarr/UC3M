@@ -1,0 +1,7 @@
+{
+    a: true,
+    b: false
+    c: T,
+    d: F,
+    e: "a" < 0xA
+}

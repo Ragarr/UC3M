@@ -1,0 +1,4 @@
+SCOPE: global
+Type(name='Persona', attributes={'edad': 'int', 'nombre': 'character', 'sexo': 'character'}
+)
+

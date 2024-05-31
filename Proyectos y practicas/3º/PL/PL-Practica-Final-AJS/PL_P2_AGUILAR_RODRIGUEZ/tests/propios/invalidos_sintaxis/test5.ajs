@@ -1,0 +1,33 @@
+
+// Funciones inválidas
+
+function if (a:boolean, b:boolean): boolean {
+    return a || b;
+}
+
+function (a:boolean, b:boolean): boolean {
+    return a || b;
+}
+
+function a (a, b): boolean {
+    return a || b;
+}
+
+function a (a:"boolean", b:boolean):boolean {
+    return a || b;
+}
+
+function a (a:boolean, b:boolean):boolean {
+    a = b;
+}
+
+// según la gramática del enunciado, no se pueden tener dos return's 
+// en una función
+function a (a:boolean, b:boolean):boolean {
+    return a || b;
+    return a && b;
+}
+
+
+let a = sumar(1 2);
+let b = sumar()

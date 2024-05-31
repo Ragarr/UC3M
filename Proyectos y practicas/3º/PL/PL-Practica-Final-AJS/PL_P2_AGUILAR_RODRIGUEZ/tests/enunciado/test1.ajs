@@ -1,0 +1,27 @@
+type NestedObject = { "this is": character, prop2: int, "prop3": boolean };
+type Object = { prop1: float, "nested": NestedObject };
+
+let var1: Object, var2, var3, var4;
+var1 = {
+    prop1: 10e-1,
+    nested: { "this is": 'A', prop2: 10, prop3: tr }
+};
+var2 = 10;
+var3 = 50.;
+var4 = 12e23;
+
+// This is a function
+function gte(a: int, b: int): boolean {
+    return a > b;
+}
+
+/*
+* we can access object properties using dot notation (sometimes) or,
+* we can also use the bracket notation (always)
+*/
+
+if (gte(var1.nested["prop2"], var2)) {
+    var3 = 'Y';
+} else {
+    var3 = 'N';
+}

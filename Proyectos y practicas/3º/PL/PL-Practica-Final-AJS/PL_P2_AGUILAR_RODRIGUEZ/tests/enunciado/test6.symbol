@@ -1,0 +1,12 @@
+SCOPE: global
+Type(name='House', attributes={'location': 'location', 'price': 'price'}
+)
+Object(name='my_house', type='House', attributes=[   Object(name='location', type=[Symbol(name='city', type='CHAR_VALUE', value='M'), Symbol(name='country', type='CHAR_VALUE', value='E')], attributes=[   Object(name='price', type=None, attributes=[   Symbol(name='euro', type='NUMBER_VALUE', value=100),
+    Symbol(name='dollar', type='NUMBER_VALUE', value=108),
+    Symbol(name='yen', type='NUMBER_VALUE', value=16397)])]),
+    Object(name='price', type=None, attributes=[   Symbol(name='euro', type='NUMBER_VALUE', value=100),
+    Symbol(name='dollar', type='NUMBER_VALUE', value=108),
+    Symbol(name='yen', type='NUMBER_VALUE', value=16397)])])
+Symbol(name='with_tax', type='NUMBER_VALUE', value=110.00000000000001)
+Symbol(name='euro_to_yen', type='NUMBER_VALUE', value=16397.0)
+

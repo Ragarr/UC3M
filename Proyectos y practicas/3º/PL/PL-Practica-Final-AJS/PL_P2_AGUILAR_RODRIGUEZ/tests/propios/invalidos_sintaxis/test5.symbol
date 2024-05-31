@@ -1,0 +1,9 @@
+SCOPE: global
+Function(name='a', type='boolean', parameters=	a:boolean,
+	b:boolean,
+)
+
+SCOPE: a
+Symbol(name='a', type=None, value='Unkown')
+Symbol(name='b', type=None, value='Unkown')
+

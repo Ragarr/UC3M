@@ -1,0 +1,5 @@
+type Point = { x: int, y: int};
+
+function get_point_after_jump(point: Point): Point {
+    return { x: point.x, y: point.y + 10 };
+}

@@ -1,0 +1,15 @@
+// Salto condicional
+let num;
+let is_positive; 
+if (num >= 0){ // error pues num no tiene valor ni tipo.
+    is_positive = tr;
+} else {
+    is_positive = fl;
+}
+
+/* 
+ *
+ * cosas
+ *
+ *
+*/

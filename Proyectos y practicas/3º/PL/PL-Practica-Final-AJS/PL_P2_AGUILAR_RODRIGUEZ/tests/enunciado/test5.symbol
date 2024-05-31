@@ -1,0 +1,14 @@
+SCOPE: global
+Type(name='Circle', attributes={'color': 'character', 'cx': 'float', 'cy': 'float', 'radio': 'float'}
+)
+Type(name='Square', attributes={'color': 'character', 'side': 'float'}
+)
+Object(name='circle', type='Circle', attributes=[   Symbol(name='cx', type='NUMBER_VALUE', value=0.0),
+    Symbol(name='cy', type='NUMBER_VALUE', value=0.0),
+    Symbol(name='radio', type='NUMBER_VALUE', value=10.2),
+    Symbol(name='color', type='CHAR_VALUE', value='r')])
+Symbol(name='circle_area', type='NUMBER_VALUE', value=326.68559999999997)
+Object(name='square', type='Square', attributes=[   Symbol(name='side', type='NUMBER_VALUE', value=10.0),
+    Symbol(name='color', type='CHAR_VALUE', value='b')])
+Symbol(name='square_area', type='NUMBER_VALUE', value=100.0)
+

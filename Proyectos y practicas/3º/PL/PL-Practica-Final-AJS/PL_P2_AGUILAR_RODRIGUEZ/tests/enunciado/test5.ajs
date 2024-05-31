@@ -1,0 +1,20 @@
+type Circle = { cx: float, cy: float, radio: float, color: character };
+type Square = { side: float, color: character };
+
+let circle: Circle = {
+    cx: 0.,
+    cy: 0.,
+    radio: 10.2,
+    color: 'r',
+};
+
+let square: Square, circle_area;
+circle_area = 3.14 * circle.radio * circle["radio"];
+
+square.side = 10.; // Error: 'square' no ha sido inicializado
+square = {
+    side: 10.,
+    color: 'b'
+};
+
+let square_area = square.side * square["side"];

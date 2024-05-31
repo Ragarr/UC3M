@@ -1,0 +1,12 @@
+
+let num = 3;
+
+let a = tr;
+
+
+if (num==3){
+    let casa = 12;
+}
+else{
+    let casa = 13;
+}

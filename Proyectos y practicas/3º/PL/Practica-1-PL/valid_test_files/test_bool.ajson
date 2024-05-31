@@ -1,0 +1,15 @@
+{
+    bool1: TR,
+    bool2: tr,
+    bool3: Tr,
+    bool4: FL,
+    bool5: fl,
+    bool6: Fl,
+
+    bool7: 5<3,
+    bool8: 4<= 5,
+    bool9: 4>= 5,
+    bool10: 4 == 5,
+    bool11: 4>5,
+    
+}

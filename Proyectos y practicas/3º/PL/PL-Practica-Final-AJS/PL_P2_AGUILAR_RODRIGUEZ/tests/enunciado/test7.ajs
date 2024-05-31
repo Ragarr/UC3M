@@ -1,0 +1,7 @@
+let a = 10;
+let b = 12.12;
+
+if (a) { 
+   a = -a;
+ } // movimiento: ¿se puede utilizar 'a' de tipo 'int' como condiciór -> no
+let x = a + b; // combinación: ¿cuál es el tipo de 'x'?

@@ -1,0 +1,55 @@
+
+// COMENTARIOS
+/*  Esto es un
+    comentario
+    multilinea 
+*/
+
+
+// VARIABLES
+let a;
+let b, c;
+let d, e, f = 3;
+let g = '$';
+
+
+// TIPOS DE DATOS
+
+// numeros enteros
+let h = 1;
+let i = -999;
+let j = 0;
+let k = 0b101;
+let l = 0B00111;
+let m = 0777;
+let n = 0645;
+let o = 0xFF;
+let p = 0XA13;
+let q = 0xabc;
+let r = 0Xabc23;
+
+// numeros reales
+let s = 0.12;
+let t = .12;
+let u = -100.01;
+let v = 50.;
+let w = 10e-1;
+let x = .1E10;
+let y = 5E2;
+let z = 4e-2;
+let aa = 9.87e1;
+
+// caracter
+let ab = 'a';
+let ac = '5';
+let ad = ' ';
+
+// booleanos
+let ae = tr;
+let af = fl;
+
+// nulos
+let ag = null;
+
+
+

@@ -1,0 +1,8 @@
+let a, b, c;
+a = 10;
+b = a * a <= 200;
+c = '$'; // Error: la variable 'c' no ha sido declarada anteriormente
+
+let d, e = 0xFF / (0b101 * (0702 - 1e-10));
+
+c = '$';

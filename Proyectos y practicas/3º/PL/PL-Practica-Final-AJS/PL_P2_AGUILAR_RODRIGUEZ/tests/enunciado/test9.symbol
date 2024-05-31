@@ -1,0 +1,6 @@
+SCOPE: global
+Symbol(name='c', type=None, value='Unkown')
+Symbol(name='i', type=None, value='Unkown')
+Symbol(name='f1', type=None, value='Unkown')
+Symbol(name='err1', type=None, value='Unkown')
+

@@ -1,0 +1,8 @@
+SCOPE: global
+Type(name='TypeConversions', attributes={'b': 'boolean', 'f1': 'float', 'f2': 'float', 'i': 'int'}
+)
+Object(name='t', type='TypeConversions', attributes=[   Symbol(name='f1', type='NUMBER_VALUE', value=7.5),
+    Symbol(name='f2', type='NUMBER_VALUE', value=3),
+    Symbol(name='i', type='NUMBER_VALUE', value=7.5),
+    Symbol(name='b', type='NUMBER_VALUE', value=7.5)])
+
