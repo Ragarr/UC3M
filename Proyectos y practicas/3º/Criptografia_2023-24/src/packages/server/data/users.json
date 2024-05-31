@@ -1,0 +1,12 @@
+[
+    {
+        "name": "admin",
+        "password": "d61bda5d89187fca4c4539f802b32d1ae92a9a094865458f00cf25e3e9efecde",
+        "salt_p": "bca23ec565a6401cbc634940acd89389"
+    },
+    {
+        "name": "a",
+        "password": "aadb533ec97761632787ce3b15159960d700b46165363c4559d4a9597bb90feb",
+        "salt_p": "f565f20127314e0b88b7e3653bddf50a"
+    }
+]
