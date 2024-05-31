@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Carrito</title>
+        <link rel="stylesheet" href="cart.css" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-icons">
+                    <!-- modificar enlaces -->
+                    <div id="logo-block">
+                        <a href="#"
+                            ><img
+                                src="/mobile/media/eci-letras.png"
+                                class="logo"
+                                alt="logo"
+                        /></a>
+                        <h2 class="location">Preciados-callao</h2>
+                    </div>
+                    <div class="favouritesnprofile">
+                        <a href="/mobile/pages/favourites/favourites.html"
+                            ><img
+                                src="/mobile/media//heart.svg"
+                                class="favourites"
+                                alt="Icono 1"
+                        /></a>
+                        <a href="/mobile/mobile.html"
+                            ><img
+                                src="/mobile/media//profile.svg"
+                                class="profile"
+                                alt="Icono 2"
+                        /></a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section id="cart">
+                <ul id="cart-list">
+                    <!-- Aquí se añadirán los productos -->
+                </ul>
+            </section>
+
+            <div id="message-container" style="display: none; color: green; margin-top: 10px;"></div>
+            
+            <section id="total-container">
+                <div id="total">
+                    <h2><span id="total-price"></span></h2>
+                    <div div id="totales">
+                        <p id="total-items">0 productos</p>
+                    </div>
+                    <button id="buy-button">Tramitar pedido</button>
+                </div>
+            </section>
+
+            <div id="tramitar-pedido-popup" class="popup">
+                <div class="popup-content">
+                    <h2>Tramitar pedido</h2>
+                    <select id="payment-method">
+                        <option value="pay-at-cashier">Pagar en Caja</option>
+                        <option value="pay-on-app">Tarjeta</option>
+                    </select>
+                    <form id="payment-form">
+                        <div class="input-header">
+                            <p>Numero de la Tarjeta</p>
+                        </div>
+                        <input
+                            type="text"
+                            id="card-number"
+                            placeholder="Número de tarjeta"
+                        />
+                        <div class="input-header">
+                            <p>Fecha de caducidad</p>
+                        </div>
+                        <input
+                            type="text"
+                            id="card-expiration"
+                            placeholder="Fecha de caducidad"
+                        />
+                        <div class="input-header">
+                            <p>CVC</p>
+                        </div>
+                        <input type="text" id="card-cvc" placeholder="CVC" />
+                    </form>
+                    <select id="delivery-method">
+                        <option value="pick-up-now">
+                            Recoger en caja ahora
+                        </option>
+                        <option value="home-delivery">
+                            Entrega a domicilio
+                        </option>
+                    </select>
+                    <form id="delivery-form">
+                        <div class="input-header">
+                            <p>Dirección</p>
+                        </div>
+                        <input
+                            type="text"
+                            id="delivery-address"
+                            placeholder="Dirección"
+                        />
+                        <div class="input-header">
+                            <p>Numero, portal, piso, puerta</p>
+                        </div>
+                        <input
+                            type="text"
+                            id="delivery-number"
+                            placeholder="Numero, portal, piso, puerta"
+                        />
+                        <div class="input-header">
+                            <p>Codigo postal</p>
+                        </div>
+                        <input
+                            type="text"
+                            id="delivery-city-code"
+                            placeholder="Codigo postal"
+                        />
+                        <div class="input-header">
+                            <p>Población</p>
+                        </div>
+                        <input
+                            type="text"
+                            id="delivery-city"
+                            placeholder="Población"
+                        />
+                    </form>
+                    <div class="horizontal-buttons">
+                        <button id="cancel-button">Cancelar</button>
+                        <button id="confirm-button">Finalizar y pagar</button>
+                    </div>
+                </div>
+            </div>
+            <div id="loading-popup" class="popup">
+                <div class="popup-content">
+                    <h2>Procesando pago...</h2>
+                    <img src="/mobile/media/loading.svg" alt="loading" />
+                </div>
+            </div>
+            <div id="confirmation-popup" class="popup">
+                <div class="popup-content">
+                    <h2>¡Pedido completado!</h2>
+                    <p>Gracias por su compra</p>
+                    <p><span id="qr-code-text"></span></p>
+                    <canvas id="qr-code"></canvas>
+                    <button id="confirmation-button">Aceptar</button>
+                </div>
+            </div>
+            <div id="cancel-popup" class="popup">
+                <div class="popup-content">
+                    <h2>¡Error!</h2>
+                    <p>Ha habido un error en el pedido</p>
+                    <button id="error-button">Aceptar</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <nav>
+                <!-- modificar enlaces -->
+                <a href="../map/map.html"
+                    ><img src="/mobile/media/map-icon.svg" alt="Icono 3"
+                /></a>
+                <a href="../qr-scanner/qr-scanner.html"
+                    ><img src="/mobile/media/scanner-icon.svg" alt="Icono 4"
+                /></a>
+                <a href="#"
+                    ><img src="/mobile/media/cart.svg" alt="Icono 5"
+                /></a>
+            </nav>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+        <script src="cart.js"></script>
+        <script src="/mobile/nfc_scanner.js"></script>
+    </body>
+</html>

@@ -1,0 +1,192 @@
+/* Estilos generales */
+@import url('https://fonts.googleapis.com/css?family=Josefin Sans');
+
+*{
+    box-sizing: border-box;
+}
+
+h2{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+    color: #333;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin:0;
+}
+  
+/* Encabezado */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: min(fit-content, 11vh); /*la altura no debe cambiarse */
+    background-color: #ffff;
+    z-index: 1;
+}
+
+nav {
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vw;
+  }
+
+.nav-icons{
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: space-between;
+}
+
+/* Imágenes responsive */
+
+.logo-block{
+    display: flex;
+    flex-direction: column;
+}
+.location{
+    font-size: medium;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1vw;
+}
+
+.logo{
+    max-width: 60vw;
+    height: auto;
+}
+
+.favouritesnprofile{
+    display: flex;
+    justify-content: right;
+
+}
+.favourites{
+    width: 15vw;
+    height: auto;
+}
+
+
+.profile{
+    margin-top:10%;
+    width: 11.5vw;
+    height: auto;
+
+}
+
+/* Contenido principal */
+main {
+    padding-top: 12vh; /* Espacio para el encabezado */
+    padding-bottom: 12vh; /* Espacio para el pie de página */
+    overflow: hidden;
+}
+#fav-list{
+    padding: 0;
+}
+.fav-item{
+    position: relative;
+    overflow: visible;
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+    background-color: #d9d9d9;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.5em;
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.fav-item-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 0.5em;
+    min-width: 40%;
+    z-index: 3;
+}
+
+.fav-item-left h2{
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #000;
+    padding-right: 0.5em;
+    border-right: 1px solid #000;
+    z-index: 3;
+}
+
+.fav-item-left a{
+    text-decoration: none;
+}
+
+.fav-item-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+    width: 45%;
+    flex-grow: 1;
+
+}
+
+.add-to-cart-button{
+    background-color: #019040;
+    color: #000;
+    border: 0;
+    padding: 0.2em;
+    margin-right: 0.5em;
+    font-size: 1.2em;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+    max-width: 25vw;
+
+}
+
+.icon-trash {
+    left: 100%; /* Comienza fuera de la vista */
+    background-image: url('/mobile/media/trash-icon.svg'); 
+    height: 100%;
+    position: absolute;
+    width: 200%;
+    background-size: 10% 50%;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-color: #ff5a5a;
+}
+
+
+
+/* Pie de página */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: fit-content;
+    background-color: #fff;
+    z-index: 1;
+}
+
+footer nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1vh;
+    height: fit-content;
+}
+
+footer nav a {
+    margin: 0 10px;
+}
+
+footer nav a img {
+    width: 15vw;
+}

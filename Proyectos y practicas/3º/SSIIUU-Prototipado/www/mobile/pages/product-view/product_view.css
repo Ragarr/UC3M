@@ -1,0 +1,235 @@
+/* Estilos generales */
+@import url('https://fonts.googleapis.com/css?family=Josefin Sans');
+
+*{
+    box-sizing: border-box;
+}
+
+h2{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+    color: #333;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin:0;
+}
+  
+/* Encabezado */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: min(fit-content, 11vh); /*la altura no debe cambiarse */
+    background-color: #ffff;
+    z-index: 1;
+}
+
+nav {
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vw;
+  }
+
+.nav-icons{
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: space-between;
+}
+
+/* Imágenes responsive */
+
+.logo-block{
+    display: flex;
+    flex-direction: column;
+}
+.location{
+    font-size: medium;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1vw;
+}
+
+.logo{
+    max-width: 60vw;
+    height: auto;
+}
+
+.favouritesnprofile{
+    display: flex;
+    justify-content: right;
+
+}
+.favourites{
+    width: 15vw;
+    height: auto;
+}
+
+
+.profile{
+    margin-top:10%;
+    width: 11.5vw;
+    height: auto;
+
+}
+
+.ad{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.ad img{
+    width: 80vw;
+    height: auto;
+    
+}
+
+.ad a{
+    color: #000;
+    text-decoration: none;
+
+}
+
+/* Contenido principal */
+main {
+    padding-top: 12vh; /* Espacio para el encabezado */
+    padding-bottom: 12vh; /* Espacio para el pie de página */
+}
+
+/* Pie de página */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: fit-content;
+    background-color: #fff;
+    z-index: 1;
+}
+
+footer nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1vh;
+    height: fit-content;
+}
+
+footer nav a {
+    margin: 0 10px;
+}
+
+footer nav a img {
+    width: 15vw;
+}
+
+
+
+.product-image-container{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    overflow: hidden;
+    height: 45vh; /* El contenedor de la imagen ocupará la mitad de la altura de la pantalla */
+}
+
+#product-image{
+    max-height: 100%; /* La imagen no será más alta que su contenedor */
+    max-width: 100%; /* La imagen no será más ancha que su contenedor */
+    object-fit: contain; /* La imagen se ajustará dentro del contenedor manteniendo su relación de aspecto */
+}
+
+.product-info{
+    position: fixed;
+    z-index: 3;
+    border-top: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.7); /* Añade sombreado solo en la parte superior */
+}
+.product-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.title-price{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    width: 70vw;
+    padding-left: 0.5em;
+}
+.title-price h1{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.7em;
+    font-weight: 400;
+    color: #333;
+    justify-content: left;
+
+}
+
+.title-price p{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+}
+
+.favs-cart{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: auto;
+    padding-right: 0.5em;
+}
+
+.favs-cart img{
+    width: 13vw;
+    height: auto;
+
+}
+
+#cart{
+    width: 15vw;
+    height: auto;
+    margin-left: 1vw;
+}
+
+.under-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding-top: 1vh;
+}
+
+.under-buttons button{
+    width: 40vw;
+    height: 7vh;
+    margin: 1vh;
+    border-radius: 5px;
+    background-color: #1d9c55;
+    border: 1px solid #000;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #000;
+}
+

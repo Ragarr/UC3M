@@ -1,0 +1,211 @@
+/* Estilos generales */
+@import url('https://fonts.googleapis.com/css?family=Josefin Sans');
+
+*{
+    box-sizing: border-box;
+}
+
+h2{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+    color: #333;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin:0;
+}
+  
+/* Encabezado */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: min(fit-content, 11vh); /*la altura no debe cambiarse */
+    background-color: #ffff;
+    z-index: 1;
+}
+
+nav {
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vw;
+  }
+
+.nav-icons{
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: space-between;
+}
+
+/* Imágenes responsive */
+
+.logo-block{
+    display: flex;
+    flex-direction: column;
+}
+.location{
+    font-size: medium;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1vw;
+}
+
+.logo{
+    max-width: 60vw;
+    height: auto;
+}
+
+.favouritesnprofile{
+    display: flex;
+    justify-content: right;
+
+}
+.favourites{
+    width: 15vw;
+    height: auto;
+}
+
+
+.profile{
+    margin-top:10%;
+    width: 11.5vw;
+    height: auto;
+
+}
+
+.ad{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.ad img{
+    width: 80vw;
+    height: auto;
+    
+}
+
+.ad a{
+    color: #000;
+    text-decoration: none;
+
+}
+
+/* Contenido principal */
+main {
+    padding-top: 9vh; /* Espacio para el encabezado */
+    padding-bottom: 12vh; /* Espacio para el pie de página */
+}
+
+#search-menu{
+    margin-top: 4vh;
+}
+
+
+.search-bar {
+    width:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinea verticalmente los elementos */
+}
+
+
+.search-bar input {
+    padding: 15px;
+    width: 90%;
+    border: 1.5px solid #ccc;
+}
+
+.results ul{
+    padding-left: 0;
+    padding-bottom: 2vw;
+    border: 1px solid #ccc;
+}
+
+.results li{
+    padding-left: 3vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    list-style-type: none;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    background-color: #d9d9d9;
+    font-family: Josefin Sans;
+    font-size: 1.5em;
+}
+
+.results li a{
+    text-decoration: none;
+    color: #000;
+}
+
+.search-popup ul{
+    padding-left: 0;
+}
+
+.search-popup li{
+    padding-left: 3vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    list-style-type: none;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    background-color: #d9d9d9;
+    font-family: Josefin Sans;
+    font-size: 1.5em;
+}
+
+.search-popup li a{
+    text-decoration: none;
+    color: #000;
+}
+
+.ad {
+    background-color: #ccc;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+.product-description {
+    margin-top: 7vw;
+}
+
+.product-description p{
+    font-size: 20px;
+    color:red;
+
+}
+
+/* Pie de página */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: fit-content;
+    background-color: #fff;
+    z-index: 1;
+}
+
+footer nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1vh;
+    height: fit-content;
+}
+
+footer nav a {
+    margin: 0 10px;
+}
+
+footer nav a img {
+    width: 15vw;
+}

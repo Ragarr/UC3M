@@ -1,0 +1,127 @@
+/* Reset básico y estilos generales */
+body, h1, div, nav, header, main {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #b9d0e9;
+    padding: 10px 20px; /* Padding suficiente para mantener los elementos dentro del header y no pegados al borde */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%; /* Asegura que el header ocupe todo el ancho de la vista */
+}
+
+nav #logo-block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinea el logo y el texto a la izquierda */
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo {
+    max-height: 60px; /* Tamaño reducido del logo para un aspecto más adecuado */
+    max-width: 100%; /* Máximo ancho permitido para evitar que sea más grande que el contenedor */
+    height: auto;  /* Altura automática para mantener la proporción */
+    width: auto;   /* Ancho automático para mantener la proporción */
+}
+
+.location {
+    color: rgb(23, 67, 25);
+    font-size: 20px; /* Tamaño de fuente adecuado para visibilidad */
+    margin-left: 10px; /* Ajusta el margen para alineación visual */
+    font-weight: normal; /* Peso de fuente normal para mejor legibilidad */
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+#peticiones-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.peticion-template {
+    margin-bottom: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.peticion-header, .peticion-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.peticion-title {
+    color: #333;
+    font-size: 20px;
+}
+
+.product{
+    /*poner un borde y margin*/
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    margin: 1%
+}
+
+.product p {
+    font-size: 16px;
+    color: #666;
+    margin: 5px;
+}
+
+.product span {
+    font-weight: bold;
+}
+
+.order-info span{
+    /*poner en negrita*/
+    font-weight: bold;
+}
+
+.btn-confirmar, .btn-cancelar {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-confirmar {
+    background-color: #28a745; /* Green */
+}
+
+.btn-cancelar {
+    background-color: #dc3545; /* Red */
+}
+
+.btn-confirmar:hover, .btn-cancelar:hover {
+    opacity: 0.9;
+}
+
