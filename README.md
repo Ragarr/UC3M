@@ -16,5 +16,7 @@ Un lugar para almacenar todos mis recursos de la carrera de **ingeniería inform
   - 3º
     - [Proyecto de SSIIUU, Aplicacion de compra ubicua en gran superficie]()
     - [Proyecto de SSDD, Sistema p2p tipo torrent]()
+    - [Ejercicios de SSDD, sockets colas y RPCs]()
     - [Practica 1 AA, prediccion de produccion eolica]()
     - [Practica 2 AA, Agrupacion de tipos de estrellas]()
+    - 
