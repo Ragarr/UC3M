@@ -19,4 +19,4 @@ Un lugar para almacenar todos mis recursos de la carrera de **ingeniería inform
     - [Ejercicios de SSDD, sockets colas y RPCs]()
     - [Practica 1 AA, prediccion de produccion eolica]()
     - [Practica 2 AA, Agrupacion de tipos de estrellas]()
-    - 
+    - [Practica 1 y 2 de Procesadores del Lenguaje]()
