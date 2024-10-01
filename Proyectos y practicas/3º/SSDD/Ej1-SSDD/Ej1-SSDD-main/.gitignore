@@ -1,9 +1,0 @@
-# files without extension except Makefile
-
-claves
-cliente
-servidor
-
-*.o
-*.so
-src.code-workspace
