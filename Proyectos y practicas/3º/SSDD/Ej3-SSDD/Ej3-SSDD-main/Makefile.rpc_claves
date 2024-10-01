@@ -1,0 +1,42 @@
+CC=gcc
+RPCGEN=rpcgen
+
+# Flags de compilación
+CFLAGS=-fPIC -g -I/usr/include/tirpc -I.
+LDFLAGS=-L/usr/lib64 -ltirpc -lnsl -lpthread -ldl 
+RPCFLAGS= -NMa
+
+# Fuentes y objetos
+RPCSRC=rpc_claves.x
+SOURCES_CLNT=rpc_claves_clnt.c
+SOURCES_SVC=rpc_claves_svc.c
+SOURCES_XDR=rpc_claves_xdr.c
+OBJECTS_CLNT=$(SOURCES_CLNT:.c=.o)
+OBJECTS_SVC=$(SOURCES_SVC:.c=.o)
+OBJECTS_XDR=$(SOURCES_XDR:.c=.o)
+
+all: libclaves.so cliente servidor
+
+# Genera los archivos de cliente y servidor RPC
+$(SOURCES_CLNT) $(SOURCES_SVC) $(SOURCES_XDR): $(RPCSRC)
+	$(RPCGEN) $(RPCFLAGS) $(RPCSRC)
+
+# Objetivos de compilación
+libclaves.so: claves.o $(OBJECTS_CLNT) $(OBJECTS_XDR)
+	$(CC) -shared -o $@ $^ $(LDFLAGS)
+
+cliente: cliente.o libclaves.so
+	$(CC) $(CFLAGS) -o $@ cliente.o -L. -lclaves $(LDFLAGS)
+
+servidor: servidor.o $(OBJECTS_SVC) $(OBJECTS_XDR)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+# Regla genérica para compilar C a objetos
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Limpieza de archivos generados
+clean:
+	rm -f *.o cliente servidor libclaves.so
+
+.PHONY: all clean
