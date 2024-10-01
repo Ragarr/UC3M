@@ -5,7 +5,7 @@
   "janitor",
   "obsidian-latex-suite",
   "obsidian-linter",
-  "obsidian-languagetool-plugin",
+  "terminal",
   "obsidian-pandoc",
-  "terminal"
+  "obsidian-html-plugin"
 ]
