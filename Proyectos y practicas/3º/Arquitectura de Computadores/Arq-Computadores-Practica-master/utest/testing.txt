@@ -1,0 +1,32 @@
+std::string nombreArchivo = "/home/ragarr/uni/Arq-Computadores-Practica/trazas/trz/small/boundint-base-1.trz";
+    std::ifstream archivo(nombreArchivo, std::ios::binary);
+    int numBloques = 0;
+    archivo.read(reinterpret_cast<char*>(&numBloques), sizeof(int));
+    std::vector<simParticle> particles_file;
+    for (int block = 0; block < numBloques; ++block) {
+      int64_t numParticulas = 0;
+      archivo.read(reinterpret_cast<char*>(&numParticulas), sizeof(int64_t));
+
+      for (int64_t i = 0; i < numParticulas; ++i) {
+        simParticle* particle = new simParticle();
+        archivo.read(reinterpret_cast<char*>(particle), sizeof(simParticle));
+        particles_file.push_back(*particle);
+      }
+    }
+    archivo.close();
+
+
+    std::sort(particles_file.begin(), particles_file.end(), compararPorId);
+    for (u_long n=0; n<particles_file.size();n++){
+        Vector3D<double> diffPosition = (particles_file[n].position - particles[n].position);
+        Vector3D<double> diffVelocity = particles_file[n].velocity - particles[n].velocity;
+        Vector3D<double> diffAcceleration = particles_file[n].aceleration - particles[n].aceleration;
+        Vector3D<double> diffInitialVelocity = particles_file[n].initialVelocity - particles[n].initialVelocity;
+        double diffDensity = particles_file[n].density - particles[n].density;
+        std::cout << "----PARTICLE  " << particles_file[n].id <<" - "<<particles[n].id << '\n';
+        std::cout << "   PositionDiff " << diffPosition.norm() << " = " << particles_file[n].position <<" - " << particles[n].position << '\n';
+        std::cout << "   VelocityDiff " << diffVelocity.norm() <<" = " << particles_file[n].velocity <<" - " << particles[n].velocity <<'\n';
+        std::cout << "   AccelerationDiff " << diffAcceleration.norm() <<" = " << particles_file[n].aceleration <<" - " << particles[n].aceleration << '\n';
+        std::cout << "   InitialVelocityDiff " << diffInitialVelocity.norm() <<" = " << particles_file[n].initialVelocity <<'-' << particles[n].initialVelocity <<'\n';
+        std::cout << "   DensityDiff " << diffDensity << " = " <<particles_file[n].density<< " - " << particles[n].density<< '\n';
+    };
