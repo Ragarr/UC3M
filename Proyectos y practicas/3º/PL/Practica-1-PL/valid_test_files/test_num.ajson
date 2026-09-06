@@ -1,0 +1,25 @@
+{
+    int1: 100,
+    int2: -12,
+
+    float1: 0.12,
+    float2: .12,
+    float3: -100.01,
+    float4: -.3,
+
+    exp1: 10e-1,
+    exp2: .1E10,
+    exp3: 5E2,
+    exp4: -.2E02,
+    exp5: 10.2E02,
+    exp6: -10.2E02,
+
+    bin1: 0b10,
+    bin2: 0B1111001010,
+
+    oct1: 0712,
+    oct2: 0332,
+
+    hex1: 0xFF,
+    hex2: 0X12AA,
+}

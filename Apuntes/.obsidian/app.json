@@ -1,0 +1,32 @@
+{
+  "spellcheckDictionary": [
+    "outliers",
+    "-Outlier",
+    "Outliers",
+    "\n- L",
+    "greedy",
+    "wrapper",
+    "backtracking",
+    "Sobredimensionalidad",
+    "Discretización",
+    "raíz",
+    "cuadrático",
+    "RMSE",
+    "activacón",
+    "Otros",
+    "ART",
+    "feedforward",
+    "Perceptron",
+    "Elman",
+    "Kohonen",
+    "feedforward"
+  ],
+  "pdfExportSettings": {
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 74
+  },
+  "alwaysUpdateLinks": true,
+  "vimMode": false
+}

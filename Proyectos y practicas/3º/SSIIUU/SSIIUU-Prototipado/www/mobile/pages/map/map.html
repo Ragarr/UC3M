@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Inicio</title>
+  <link rel="stylesheet" href="/mobile/mobile.css">
+  <link rel="stylesheet" href="/mobile/pages/map/map_style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-icons">
+        <div id="logo-block">
+          <a href="/mobile/mobile.html"><img src="/mobile/media/eci-letras.png" class="logo" alt="logo"></a>
+          <h2 class = location > Preciados-callao</h2>
+        </div>
+        <div class="favouritesnprofile">
+          <a href="/mobile/pages/favourites/favourites.html"><img src="/mobile/media/heart.svg" class="favourites" alt="Icono 1"></a>
+          <a href="/mobile/mobile.html"><img src="/mobile/media/profile.svg" class="profile" alt="Icono 2"></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="search-menu">
+      <div class="search-bar">
+        <input id="search-bar-input" type="text" placeholder="¿Qué estás buscando?">
+      </div>
+      <div class="results">
+        <ul class="search-results" style="display: none"></ul>
+      </div>
+
+      <div class="search-popup" style="display: none">
+        <ul>
+          <li>
+            <a class="search-suggestion" href="">Papelería</a>
+          </li>
+          <li>
+              <a class="search-suggestion" href="">Supermercado</a>
+          </li>
+          <li>
+              <a class="search-suggestion" href="">Infantil</a>
+          </li>
+          <li>
+              <a class="search-suggestion" href="">Moda</a>
+          </li>
+          <li>
+              <a class="search-suggestion" href="">Electrónica</a>
+          </li>
+          <li>
+              <a class="search-suggestion" href="">Hogar</a>
+          </li>
+          <li>
+              <a class="search-suggestion" href="">Deportes</a>
+          </li>
+          <li>
+              <a class="search-suggestion" href="">Juguetes y videojuegos</a>
+          </li>
+          <li>
+              <a class="search-suggestion" href="">Libros</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="main-content">
+        <div id="map" style="height: 100%; width: 100%  ;"></div> 
+    </section>    
+
+    <section id ="exit-popup" style="display: none">
+      <h1>¡Espera!</h1>
+      <p>Estás abandonado el recinto del establecimiento pero tienes
+        productos en tu carrito y no has completado la compra. ¿Deseas cancelarla?
+      </p>
+      <button id="keep-cart">Conservar carrito y finalizar después</button>
+      <button id="pay-cart">Revisar carrito y pagar</button>
+    </section>
+  </main>
+  
+  <footer>
+    <nav>
+      <a href="/mobile/pages/map/map.html"><img src="/mobile/media/map-icon.svg" alt="Icono 3"></a>
+      <a href="/mobile/pages/qr-scanner/qr-scanner.html"><img src="/mobile/media/scanner-icon.svg" alt="Icono 4"></a>
+      <a href="/mobile/pages/cart/cart.html"><img src="/mobile/media/cart.svg" alt="Icono 5"></a>
+    </nav>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+  <script src="map.js" defer></script>
+  <script src="/mobile/nfc_scanner.js"></script>
+  <script src="/mobile/search.js"></script>
+</body>
+</html>

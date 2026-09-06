@@ -1,0 +1,6 @@
+init
+set 001 "mas de 32 valores" 33 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2 1.2
+set 002 "256VALORESuvwxyzabcdefghijklmnñopqrsteuvwxyzabcdefghijklmnñopqrsteuvwxyzabcdefghijklmnñopqrsteuvwxyzabcdefghijklmnñopqrsteuvwxyzabcdefghijklmnñopqrsteuvwxyzabAAAcdefAghijklmnñopqrsteuvwxyzabcdefghijklmnñopqrsteuvwxyzabcdefghijklmnñopqrsteuvwxyzpqrsteuvwxyz"
+set 003 "correcto" 3 89.4761012205275 36.61638446577141 51.40452439610013 
+set 003 "duplicado" 3 89.4761012205275 36.61638446577141 51.40452439610013 
+delete 004

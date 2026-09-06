@@ -1,0 +1,219 @@
+set timing on
+set wrap off
+column OPERACION format a32
+column OPTIONS format a16
+column fromuser format a16
+column subject format a32
+column messagebody format a32
+column object_name format a16
+column ACCESS_PREDICATES format a32
+column FILTER_PREDICATES format a32
+column PROJECTION format a64
+column "Level operation|options|object" format a50
+set linesize 10000
+set pagesize 60
+
+column name format a12
+column surname format a24
+column country format a24
+
+EXEC DBMS_STATS.GATHER_SCHEMA_STATS(NULL, CASCADE=> TRUE);
+
+-- Método 1
+set autotrace off
+DELETE FROM PLAN_TABLE;
+explain plan SET STATEMENT_ID = 'q1' for
+select distinct name, surname, country from sportspeople where name = 'Lidia';
+@explain.sql q1
+
+-- Método 2
+set autotrace on
+select distinct name, surname, country from sportspeople where name = 'Lidia';
+
+
+-- Queries de la práctica
+-- EJ1
+explain plan SET STATEMENT_ID = 'q2' for
+select distinct name, surname, country, ctrl_date, place 
+   from control A, sportspeople B
+   where UPPER(A.spic)='OOO2131Q6440' 
+         AND UPPER(A.spic)=UPPER(B.spic);
+		 
+-- Primera ejecución
+Statistics
+----------------------------------------------------------
+         93  recursive calls
+          6  db block gets
+       1030  consistent gets
+        691  physical reads
+       1228  redo size
+       1079  bytes sent via SQL*Net to client
+        531  bytes received via SQL*Net from client
+          2  SQL*Net roundtrips to/from client
+          6  sorts (memory)
+          0  sorts (disk)
+          4  rows processed
+
+
+--Segunda
+-------------------------------------------------------------------------------------------------
+| Id  | Operation             | Name            | Rows  | Bytes |TempSpc| Cost (%CPU)| Time     |
+-------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT      |                 |   191K|    14M|       |  3759   (1)| 00:00:01 |
+|   1 |  HASH UNIQUE          |                 |   191K|    14M|    17M|  3759   (1)| 00:00:01 |
+|*  2 |   HASH JOIN           |                 |   191K|    14M|       |   275   (2)| 00:00:01 |
+|   3 |    VIEW               | VW_DTP_377C5901 |   998 | 33932 |       |   206   (1)| 00:00:01 |
+|   4 |     HASH UNIQUE       |                 |   998 | 37924 |       |   206   (1)| 00:00:01 |
+|*  5 |      TABLE ACCESS FULL| CONTROL         |   998 | 37924 |       |   205   (1)| 00:00:01 |
+|   6 |    TABLE ACCESS FULL  | SPORTSPEOPLE    | 19229 |   826K|       |    68   (0)| 00:00:01 |
+-------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access(UPPER("ITEM_1")=UPPER("B"."SPIC"))
+   5 - filter(UPPER("A"."SPIC")='OOO2131Q6440')
+
+Statistics
+----------------------------------------------------------
+          0  recursive calls
+          0  db block gets
+        884  consistent gets
+          0  physical reads
+          0  redo size
+       1079  bytes sent via SQL*Net to client
+        531  bytes received via SQL*Net from client
+          2  SQL*Net roundtrips to/from client
+          0  sorts (memory)
+          0  sorts (disk)
+          4  rows processed
+
+--EJ2
+explain plan SET STATEMENT_ID = 'q3' for
+select distinct name, surname, country, ctrl_date, place 
+   from control A JOIN sportspeople B using(spic)
+   where UPPER(spic)='OOO2131Q6440';
+
+------------------------------------------------------------------------------------
+| Id  | Operation           | Name         | Rows  | Bytes | Cost (%CPU)| Time     |
+------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT    |              |  1000 | 82000 |   274   (1)| 00:00:01 |
+|   1 |  HASH UNIQUE        |              |  1000 | 82000 |   274   (1)| 00:00:01 |
+|*  2 |   HASH JOIN         |              |  1000 | 82000 |   273   (1)| 00:00:01 |
+|*  3 |    TABLE ACCESS FULL| SPORTSPEOPLE |   192 |  8448 |    68   (0)| 00:00:01 |
+|   4 |    TABLE ACCESS FULL| CONTROL      | 99832 |  3704K|   205   (1)| 00:00:01 |
+------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("A"."SPIC"="B"."SPIC")
+   3 - filter(UPPER("B"."SPIC")='OOO2131Q6440')
+
+Note
+-----
+   - this is an adaptive plan
+
+Statistics
+----------------------------------------------------------
+         31  recursive calls
+          0  db block gets
+        219  consistent gets
+          2  physical reads
+          0  redo size
+       1282  bytes sent via SQL*Net to client
+        725  bytes received via SQL*Net from client
+          3  SQL*Net roundtrips to/from client
+          0  sorts (memory)
+          0  sorts (disk)
+          4  rows processed
+
+--EJ3: Baja el dataset porque se propagan las selecciones hacia abajo
+--- La tabla control se accede mediante FS ==> definir un índice ahí
+explain plan SET STATEMENT_ID = 'q4' for
+select name, surname, country, ctrl_date, place 
+   from (select spic, name, surname, country 
+            from sportspeople where UPPER(spic)='OOO2131Q6440') 
+   join (select distinct spic, ctrl_date, place 
+            from control where UPPER(spic)='OOO2131Q6440') 
+   using(spic);
+
+
+---------------------------------------------------------------------------------------------
+| Id  | Operation                    | Name         | Rows  | Bytes | Cost (%CPU)| Time     |
+---------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT             |              |   196 | 16072 |   265   (1)| 00:00:01 |
+|   1 |  MERGE JOIN                  |              |   196 | 16072 |   265   (1)| 00:00:01 |
+|   2 |   TABLE ACCESS BY INDEX ROWID| SPORTSPEOPLE |   192 |  8448 |    59   (0)| 00:00:01 |
+|*  3 |    INDEX FULL SCAN           | PK_SPEOPLE   |   192 |       |    57   (0)| 00:00:01 |
+|*  4 |   SORT JOIN                  |              |   998 | 37924 |   206   (1)| 00:00:01 |
+|*  5 |    TABLE ACCESS FULL         | CONTROL      |   998 | 37924 |   205   (1)| 00:00:01 |
+---------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   3 - filter(UPPER("SPIC")='OOO2131Q6440')
+   4 - access("SPIC"="SPIC")
+       filter("SPIC"="SPIC")
+   5 - filter(UPPER("SPIC")='OOO2131Q6440')
+
+
+Statistics
+----------------------------------------------------------
+          0  recursive calls
+          0  db block gets
+        198  consistent gets
+          0  physical reads
+          0  redo size
+       1067  bytes sent via SQL*Net to client
+        648  bytes received via SQL*Net from client
+          2  SQL*Net roundtrips to/from client
+          0  sorts (memory)
+          0  sorts (disk)
+          4  rows processed
+
+--EJ4
+create index ind2 on control(spic);
+--ejecutar EJ3 ==> No cambios
+
+--EJ5
+drop index ind2;
+create index ind2 on control(UPPER(spic));
+
+------------------------------------------------------------------------------------------------------
+| Id  | Operation                             | Name         | Rows  | Bytes | Cost (%CPU)| Time     |
+------------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT                      |              |   196 | 16856 |   263   (1)| 00:00:01 |
+|   1 |  MERGE JOIN                           |              |   196 | 16856 |   263   (1)| 00:00:01 |
+|   2 |   TABLE ACCESS BY INDEX ROWID         | SPORTSPEOPLE |   192 |  8448 |    59   (0)| 00:00:01 |
+|*  3 |    INDEX FULL SCAN                    | PK_SPEOPLE   |   192 |       |    57   (0)| 00:00:01 |
+|*  4 |   SORT JOIN                           |              |   998 | 41916 |   204   (1)| 00:00:01 |
+|   5 |    TABLE ACCESS BY INDEX ROWID BATCHED| CONTROL      |   998 | 41916 |   203   (0)| 00:00:01 |
+|*  6 |     INDEX RANGE SCAN                  | IND2         |   399 |       |     1   (0)| 00:00:01 |
+------------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   3 - filter(UPPER("SPIC")='OOO2131Q6440')
+   4 - access("SPIC"="SPIC")
+       filter("SPIC"="SPIC")
+   6 - access(UPPER("SPIC")='OOO2131Q6440')
+
+
+Statistics
+----------------------------------------------------------
+          2  recursive calls
+          0  db block gets
+         67  consistent gets
+          1  physical reads
+          0  redo size
+       1067  bytes sent via SQL*Net to client
+        648  bytes received via SQL*Net from client
+          2  SQL*Net roundtrips to/from client
+          1  sorts (memory)
+          0  sorts (disk)
+          4  rows processed
+
+

@@ -1,0 +1,24 @@
+
+let 2 = a; // SyntaxError: Not valid ID
+
+let if = 2; // SyntaxError: Reserved word
+
+let "abc" = 2; // SyntaxError: Not valid ID
+
+let let = 2; // SyntaxError: Reserved word
+
+let a b = 2; // SyntaxError: Unexpected token
+
+let a, b = 2 // SyntaxError: Unexpected token
+
+type Object = {
+  name: char,
+  age: number // SyntaxError: Unexpected token
+  isStudent: boolean
+};
+
+type Object = {
+  name: char,
+  age: "casa", // SyntaxError: Invalid declaration
+  isStudent: boolean
+};

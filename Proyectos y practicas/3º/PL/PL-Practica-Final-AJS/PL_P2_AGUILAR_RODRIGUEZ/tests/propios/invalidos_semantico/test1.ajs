@@ -1,0 +1,10 @@
+let a: boolean;
+
+a = 3;
+
+
+let b = tr;
+
+if(b<3){
+    a = 2;
+}

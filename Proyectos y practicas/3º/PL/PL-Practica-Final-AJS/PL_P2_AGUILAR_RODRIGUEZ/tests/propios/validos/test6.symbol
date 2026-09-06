@@ -1,0 +1,71 @@
+SCOPE: global
+Type(name='string', attributes={   'c1': 'character',
+    'c2': 'character',
+    'c3': 'character',
+    'c4': 'character',
+    'c5': 'character',
+    'c6': 'character'}
+)
+Function(name='mostrarError', type='int', parameters=	mensaje:int,
+)
+Function(name='suma', type='int', parameters=	a:int,
+	b:int,
+)
+Symbol(name='resultado2', type='int', value='Unkown')
+Type(name='Persona', attributes={'edad': 'int', 'nombre': 'string'}
+)
+Function(name='crearPersona', type='Persona', parameters=	nombre:string,
+	edad:int,
+)
+
+SCOPE: mostrarError
+Type(name='string', attributes={   'c1': 'character',
+    'c2': 'character',
+    'c3': 'character',
+    'c4': 'character',
+    'c5': 'character',
+    'c6': 'character'}
+)
+Function(name='mostrarError', type='int', parameters=	mensaje:int,
+)
+Symbol(name='mensaje', type='int', value='Unkown')
+Symbol(name='i', type='int', value='Unkown')
+
+SCOPE: suma
+Type(name='string', attributes={   'c1': 'character',
+    'c2': 'character',
+    'c3': 'character',
+    'c4': 'character',
+    'c5': 'character',
+    'c6': 'character'}
+)
+Function(name='mostrarError', type='int', parameters=	mensaje:int,
+)
+Function(name='suma', type='int', parameters=	a:int,
+	b:int,
+)
+Symbol(name='a', type='int', value='Unkown')
+Symbol(name='b', type='int', value='Unkown')
+
+SCOPE: crearPersona
+Type(name='string', attributes={   'c1': 'character',
+    'c2': 'character',
+    'c3': 'character',
+    'c4': 'character',
+    'c5': 'character',
+    'c6': 'character'}
+)
+Function(name='mostrarError', type='int', parameters=	mensaje:int,
+)
+Function(name='suma', type='int', parameters=	a:int,
+	b:int,
+)
+Symbol(name='resultado2', type='int', value='Unkown')
+Type(name='Persona', attributes={'edad': 'int', 'nombre': 'string'}
+)
+Function(name='crearPersona', type='Persona', parameters=	nombre:string,
+	edad:int,
+)
+Symbol(name='nombre', type='string', value='Unkown')
+Symbol(name='edad', type='int', value='Unkown')
+

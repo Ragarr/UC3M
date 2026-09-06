@@ -1,0 +1,34 @@
+
+// FUNCIÓN
+type string = {
+    c: character
+};
+
+function mostrarError(mensaje: int): int {
+    let i = 0;
+    while (i < mensaje) {
+        i+2; // no cambia el valor de i
+    }
+    return 0;
+}
+
+mostrarError(10);
+
+function suma(a: int, b: int): int {
+    return a + b;
+}
+
+let resultado2 = suma(10, 20);
+
+
+type Persona = {
+    nombre: string,
+    edad: int
+};
+
+function crearPersona(nombre: string, edad: int): Persona {
+    return {
+        nombre: nombre,
+        edad: edad
+    };
+}

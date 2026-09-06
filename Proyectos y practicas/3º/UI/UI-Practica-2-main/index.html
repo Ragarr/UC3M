@@ -1,0 +1,740 @@
+<!--
+    AUTORES: Natalia Rodríguez Navarro 100471976
+             Raúl Aguilar Arroyo 100472050         
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante El Camino</title>
+    <link rel="shortcut icon" href="media/img/logo.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head> 
+
+
+<body>
+    <section id="menu_de_hamburguesa_container">
+        <div class='menu_de_hamburguesa'>
+            <div class='title pointerCursor'>Opciones<i class="fa fa-angle-right"></i></div>
+            
+            <div class='opciones_menu pointerCursor hide'>
+                <div class='option' id='option1'>Inicio</div>
+                <div class='option' id='option2'>Menú</div>
+                <div class='option' id='option3'>Nuestros chefs</div>
+                <div class='option' id='option4'>Sobre nosotros</div>
+                <div class='option' id='option5'>Registro</div>
+                <div class='option' id='option6'>Realizar pedido</div>
+            </div>
+        </div>
+
+        <div id="identificate">
+            <button class="open_popup" id="open_reg_2">Identifícate<img id="sig_in_logo" 
+                src="media/img/sign_in.png" alt="Icono de registro"></button>
+        </div>
+    </section>
+
+    <section id="page1">
+        <h3>Inicio</h3>
+        <div id="col_izq1">
+            <img id="logo" src="media/img/logo.png" alt="Logo del restaurante">
+            <video id="video" autoplay loop muted playsinline src="media/video/compressed.m4v"></video>
+        </div>
+  
+        <div id="col_der1">
+            <a id="btn_inicio" href="#page1">
+                <div class="caja">Inicio</div>
+            </a>
+            <a id="btn_menu" href="#page2">
+                <div class="caja">Menu</div>
+            </a>
+            <a id="btn_chefs" href="#page3">
+                <div class="caja">Nuestros chefs</div>
+            </a>
+            <a id="btn_nosotros" href="#page4">
+                <div class="caja">Sobre Nosotros</div>
+            </a>
+
+            <button class="open_popup" id="open_reg">Registrase</button>
+            <div class="popup_container" id="reg_popup">
+                <div class="popup_content">
+                    <div class="popuptitle_and_cross">
+                        <h1>Registro</h1>
+                        <span class="close" id="close_reg">&times;</span>
+                    </div>
+                    <div id="formulario">
+                        <form>
+                            <div>
+                                <label for="dni">DNI:</label>
+                                <input type="text" id="dni" name="dni" required 
+                                placeholder="55555555K">
+                            </div>
+                            <div>
+                                <label for="nom_ap">Nombre y Apellidos:</label>
+                                <input type="text" id="nom_ap" name="nom_ap" required
+                                placeholder="Nombre Apellido1 Apellido2*" 
+                                pattern="(^[A-ZÁÉÍÓÚ]{1}([a-zñáéíóú]+){1,})(\s[A-ZÁÉÍÓÚ]{1}([a-zñáéíóú]+){1,})(\s[A-ZÁÉÍÓÚ]{1}([a-zñáéíóú]+){0,})?$"
+                                autocomplete="name">
+                            </div>
+                            <div>
+                                <label for="telf">Teléfono:</label>
+                                <input type="tel" id="telf" name="telf" required
+                                placeholder="923200014" pattern="[9,8]{1}[1-8]{1}[0-9]{7}"
+                                autocomplete="tel">
+                            </div>
+                            <div>
+                                <label for="email">Correo Electrónico:</label>
+                                <input type="email" id="email" name="email" required
+                                placeholder="nombre@dominio.ext" 
+                                autocomplete="email">
+                            </div>
+                            <div class="botones">
+                                <div id="btn_cancelar_limpiar">
+                                    <input type="reset" class="btn_limpiar" value="Limpiar campos">
+                                </div>
+                                <div>
+                                    <input type="submit" class="btn_enviar" id ="submit_reg">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <button class="open_popup" id="open_pedido">Realiza tu pedido</button>
+            <div class="popup_container" id="pedido_popup">
+                <div class="popup_content">
+                    <div class="popuptitle_and_cross">
+                        <h1>Haz tu pedido</h1>
+                        <span class="close" id="close_pedido">&times;</span>
+                    </div>
+                    <div>
+                        <ul class="breadcrumb">
+                            <li><a id="bc_seleccionar">Seleccionar productos</a></li>
+                            <li><a id="bc_revisar">Revisar y pagar</a></li>
+                            <li><a id="bc_estado">Estado del pedido</a></li>
+                          </ul>
+                    </div>
+                    <div id = "carrito_container">
+                        <div id="carrito">0</div>
+                        <img id="img_carrito" src="media/img/carrito.png" alt="Carrito de la compra">  
+                    </div>
+                    <div id="seleccionar_productos">
+                        <h2>Entrantes</h2>
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Nachos con guacamole casero</p>
+                            <p class="precio">$8.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button>
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Queso derretido con champiñones</p>
+                            <p class="precio">$10.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Tacos de Carnitas </p>
+                            <p class="precio">$11.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Tamales rellenos de pollo o cerdo</p>
+                            <p class="precio">$9.99</p>
+                            <div class = "seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Sopa de tortilla con aguacate y crema</p>
+                            <p class="precio">$7.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+
+                        <h2>Platos Principales</h2>
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Tres enchiladas de pollo con arroz y frijoles</p>
+                            <p class="precio">$12.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Tacos al Pastor</p>
+                            <p class="precio">$13.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class = "plato_menu">
+                            <p class="nombre_plato">Chiles poblanos rellenos de queso o picadillo</p>
+                            <p class="precio">$12.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Parrillada Mexicana</p>
+                            <p class="precio">$18.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+
+                        <h2>Especialidades</h2>
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Pozole</p>
+                            <p class="precio">$11.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Camarones a la Diabla</p>
+                            <p class="precio">$16.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Tacos de pescado empanizado con ensalada</p>
+                            <p class="precio">$14.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Tlayudas Oaxaqueñas</p>
+                            <p class="precio">$15.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+
+                        <h2>Postres</h2>
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Flan casero con caramelo</p>
+                            <p class="precio">$5.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Queso derretido con champiñones</p>
+                            <p class="precio">$10.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Churros</p>
+                            <p class="precio">$6.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Pastel de Tres Leches</p>
+                            <p class="precio">$7.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+
+                        <h2>Bebidas</h2>
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Margarita</p>
+                            <p class="precio">$7.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Cerveza Mexicana </p>
+                            <p class="precio">$4.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plato_menu">
+                            <p class="nombre_plato">Aguas Frescas</p>
+                            <p class="precio">$3.99</p>
+                            <div class="seleccion_producto">
+                                <button class="añadir_producto">+</button> 
+                                <p class="contador">0</p>
+                                <button class="eliminar_producto">-</button>
+                            </div>
+                        </div>
+
+                        <div class="botones">
+                            <div id="btn_cancelar_limpiar">
+                                <input type="button" class="btn_cancelar" value="Cancelar">
+                                <input type="reset" class="btn_limpiar" id ="limpiar_selecciones" value="Limpiar selecciones" >
+                            </div>
+                            <div>
+                                <input type="submit" class="btn_enviar" id="btn_ir_paso_2" value="Revisar pedido>" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="revision_pedido">
+                        <div id = "lista_pedido">
+                            
+                        </div>
+                        <div id="total_pedido">
+                            <p id="precio_total">0</p>
+                        </div>
+                        <div class="botones">
+                            <div id="btn_cancelar_limpiar">
+                                <input type="button" class="btn_cancelar" value="Cancelar">
+                                <input type="button" class="btn_limpiar" id = "btn_ir_paso_1" value= "<Editar pedido">
+                            </div>
+                            <div>
+                                <input type="submit" class="btn_enviar" value="Pagar" id="btn_ir_paso_3">
+                            </div>
+                        </div>
+                    </div>
+                        
+                    
+
+                    <div id="estado_pedido">
+                        <div id="texto_final">
+                            <h2>¡Pedido realizado con éxito!</h2>
+                            <p>Su pedido está en camino...</p>
+                            <div class="countdown">
+                                <div id="timer">10:00</div>
+                                <div id = "barra_progreso"></div>
+                            </div>
+                            <p>TIEMPO ESTIMADO DE ESPERA</p>
+                        </div>
+                        <div class="botones">
+                            <input type="submit" id="btn_finalizar" value="TERMINAR">
+                            <input type="submit" class="btn_cancelar" value="NUEVO PEDIDO">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="page" id="page2">
+
+        <div class="col_texto" id ="menu">
+                <div id ="ENTRANTES">
+                    <h2>ENTRANTES</h2>
+                    <ul>
+                        <li>Nachos con guacamole casero - <b>$8.99</b></li>
+                        <li>Queso derretido con chorizo o champiñones - <b>$10.99</b></li>
+                        <li>Tacos de Carnitas - Tacos de cerdo desmenuzado con salsa verde - <b>$11.99</b></li>
+                        <li>Tamales rellenos de pollo o cerdo - <b>$9.99</b></li>
+                        <li>Sopa de tortilla con aguacate y crema - <b>$7.99</b></li>
+                    </ul>
+                </div>
+                <div id = "PRINCIPALES">
+                    <h2>PLATOS PRINCIPALES</h2>
+                    <ul>
+                        <li>Tres enchiladas de pollo con arroz y frijoles - <b>$12.99</b></li>
+                        <li>Tacos al Pastor - Tacos de cerdo marinado con piña - <b>$13.99</b></li>                        
+                        <li>Chiles Rellenos - Chiles poblanos rellenos de queso o picadillo - <b>$12.99</b></li>
+                        <li>Parrillada Mexicana - Una variedad de carnes asadas con guarniciones - <b>$18.99</b></li>
+                    </ul>
+                </div>
+                <div id="ESPECIALIDADES">
+                    <h2>ESPECIALIDADES</h2>
+                    <ul>
+                        <li>Pozole - Sopa tradicional de maíz hominy con cerdo o pollo - <b>$11.99</b></li>
+                        <li>Camarones a la Diabla - Camarones en salsa picante con arroz - <b>$16.99</b></li>
+                        <li>Tacos de Pescado - Tacos de pescado empanizado con ensalada - <b>$14.99</b></li>
+                        <li>Tlayudas Oaxaqueñas - Tortillas de maíz gigantes con carne, frijoles y queso - <b>$15.99</b></li>
+                    </ul>
+                </div>
+                <div id="POSTRES">
+                    <h2>POSTRES</h2>
+                    <ul>
+                        <li>Flan - Flan casero con caramelo - <b>$5.99</b></li>
+                        <li>Queso derretido con chorizo o champiñones - <b>$10.99</b></li>
+                        <li>Churros - Churros con chocolate caliente - <b>$6.99</b></li>
+                        <li>Pastel de Tres Leches - Pastel empapado en tres tipos de leche - <b>$7.99</b></li>
+                    </ul>
+                </div>
+                <div id="BEBIDAS">
+                    <h2>BEBIDAS</h2>
+                    <ul>
+                        <li>Margarita - Margarita clásica o de frutas - <b>$7.99</b></li>
+                        <li>Cerveza Mexicana - Variedad de cervezas mexicanas - <b>Desde $4.99</b></li>
+                        <li>Aguas Frescas - Refrescantes aguas de sabores - <b>$3.99</b></li> 
+                    </ul>
+                </div>
+        </div>
+
+        <div class="col_imagenes">
+            <h1>Menú</h1>           
+            <div class="galeria">
+                <div class="carrusel" id="carrusel1" onmouseenter="showNavigation('carrusel1')" onmouseleave="hideNavigation('carrusel1')">
+                    <div class="img_con_desc">
+                        <div class="image-wraper">
+                            <a target="_blank" href="media/img/img1_1.jpeg">
+                                <div class="numbertext">1 / 3</div>
+                                <img src="media/img/img1_1.jpeg" alt="Tacos al Pastor">
+                            </a>    
+                        </div>
+                        <div class="desc">Tacos al Pastor</div>
+                    </div>
+                    <div class="img_con_desc">
+                            <div class="image-wraper">
+                                <a target="_blank" href="media/img/img1_2.jpg">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img src="media/img/img1_2.jpg" alt="Nachos con guacamole">
+                                </a>
+                            </div>
+                        <div class="desc">Nachos con guacamole</div>
+                    </div>
+                    <div class="img_con_desc">
+                            <div class="image-wraper">
+                                <a target="_blank" href="media/img/img1_3.jpg">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img src="media/img/img1_3.jpg" alt="Tamales rellenos de pollo">
+                                </a>
+                            </div>
+                        <div class="desc">Tamales rellenos</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1, 'carrusel1')">❮</a>
+                    <a class="next" onclick="plusSlides(1, 'carrusel1')">❯</a>
+                </div>
+                <div class="carrusel" id="carrusel2" onmouseenter="showNavigation('carrusel2')" onmouseleave="hideNavigation('carrusel2')">
+                    <div class="img_con_desc">
+                        <div class="image-wraper">
+                            <a target="_blank" href="media/img/img2_1.png">
+                                <div class="numbertext">1 / 3</div>
+                                <img src="media/img/img2_1.png" alt="Tlayudas Oaxaqueñas">
+                            </a>    
+                        </div>
+                        <div class="desc">Tlayudas Oaxaqueñas</div>
+                    </div>
+                    <div class="img_con_desc">
+                            <div class="image-wraper">
+                                <a target="_blank" href="media/img/img2_2.jpg">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img src="media/img/img2_2.jpg" alt="Pozole">
+                                </a>
+                            </div>
+                        <div class="desc">Pozole</div>
+                    </div>
+                    <div class="img_con_desc">
+                            <div class="image-wraper">
+                                <a target="_blank" href="media/img/img2_3.jpg">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img src="media/img/img2_3.jpg" alt="Camarones a la Diabla">
+                                </a>
+                            </div>
+                        <div class="desc">Camarones a la Diabla</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1, 'carrusel2')">❮</a>
+                    <a class="next" onclick="plusSlides(1, 'carrusel2')">❯</a>
+                </div>
+                <div class="carrusel" id="carrusel3" onmouseenter="showNavigation('carrusel3')" onmouseleave="hideNavigation('carrusel3')">
+                    <div class="img_con_desc">
+                        <div class="image-wraper">
+                            <a target="_blank" href="media/img/img3_1.jpg">
+                                <div class="numbertext">1 / 3</div>
+                                <img src="media/img/img3_1.jpg" alt="Flan casero">
+                            </a>    
+                        </div>
+                        <div class="desc">Flan casero</div>
+                    </div>
+                    <div class="img_con_desc">
+                            <div class="image-wraper">
+                                <a target="_blank" href="media/img/img3_2.jpg">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img src="media/img/img3_2.jpg" alt="Churros con chocolate caliente">
+                                </a>
+                            </div>
+                        <div class="desc">Churros con chocolate</div>
+                    </div>
+                    <div class="img_con_desc">
+                            <div class="image-wraper">
+                                <a target="_blank" href="media/img/img3_3.jpg">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img src="media/img/img3_3.jpg" alt="Pastel de Tres Leches">
+                                </a>
+                            </div>
+                        <div class="desc">Pastel de Tres Leches</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1, 'carrusel3')">❮</a>
+                    <a class="next" onclick="plusSlides(1, 'carrusel3')">❯</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page" id = "page3">
+
+        <div class="col_imagenes">
+            <h1>Nuestros chefs</h1>           
+            <div class="galeria">
+                <div class="carrusel" id="carrusel4" onmouseenter="showNavigation('carrusel4')" onmouseleave="hideNavigation('carrusel4')">
+                    <div class="img_con_desc">
+                        <div class="image-wraper">
+                            <a target="_blank" href="media/img/chef1.jpg">
+                                <div class="numbertext">1 / 3</div>
+                                <img src="media/img/chef1.jpg" alt="Foto de Roberto González">
+                            </a>    
+                        </div>
+                        <div class="desc">Roberto González</div>
+                    </div>
+                    <div class="img_con_desc">
+                            <div class="image-wraper">
+                                <a target="_blank" href="media/img/chef2.jpg">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img src="media/img/chef2.jpg" alt="Foto de María Ramírez">
+                                </a>
+                            </div>
+                        <div class="desc">María Ramírez</div>
+                    </div>
+                    <div class="img_con_desc">
+                            <div class="image-wraper">
+                                <a target="_blank" href="media/img/personal.jpeg">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img src="media/img/personal.jpeg" alt="Foto del equipo de cocina">
+                                </a>
+                            </div>
+                        <div class="desc">Grandes profesionales</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1, 'carrusel4')">❮</a>
+                    <a class="next" onclick="plusSlides(1, 'carrusel4')">❯</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col_texto">
+            <p>CONTAMOS CON UNOS DE LOS CHEFS MÁS RECONOCIDOS DE MÉXICO</p>
+            <p>
+                <b>Roberto <i> "El Maestro del Sabor" </i> González:</b>
+                Roberto González, con una carrera que abarca más de dos décadas, 
+                es el chef principal de El Camino. Su amor por la comida mexicana 
+                lo llevó a viajar por todo México aprendiendo secretos culinarios de abuelas y 
+                expertos locales. Sus habilidades han sido reconocidas con múltiples galardones, 
+                incluyendo el prestigioso "Mestizo del Año" otorgado por la Asociación 
+                Gastronómica de México.
+            </p>    
+            <p>
+                <b>María <i> "La Maga de los Aromas" </i> Ramírez:</b>
+                La co-creadora de los inolvidables aromas que se desprenden de nuestra cocina 
+                es María Ramírez. Sus habilidades en la creación de salsas y condimentos únicos 
+                han sido aclamadas en toda la industria gastronómica. María ha perfeccionado la 
+                técnica de mezclar ingredientes frescos y auténticos con especias y hierbas 
+                exquisitas. Ha sido honrada con el "Premio de Innovación en 
+                Sabor" por su contribución al mundo culinario.
+            </p>  
+            <P>
+                Pero detrás de estos dos pilares culinarios, se encuentra un equipo apasionado 
+                de chefs y personal de cocina que comparten la visión de excelencia de El Camino. 
+                Cada uno de ellos aporta su experiencia y creatividad para asegurar que su 
+                experiencia gastronómica sea inigualable.
+            </P>
+        </div>
+        
+    </section>
+
+
+
+    <section class="page" id="page4">
+
+        <div class="col_texto">
+            <p>
+                Si estás anhelando una escapada gastronómica que 
+                te haga sentir como si estuvieras explorando las auténticas 
+                calles de México, no busques más allá de El Camino. Estamos 
+                aquí para llevarte en un viaje culinario inolvidable, donde 
+                las tradiciones cobran vida y la innovación te sorprende en 
+                cada plato. 
+            </p> 
+            <p>
+                <b>¡Llámanos!:</b> <a href="tel:+1212-565-0000">+1 212-565-0000</a>
+            </p>
+            <p>
+                <b>Horario:</b> Lunes a Domingo de 12:00 a 23:00
+            </p>
+            <form id = "form_reserva">
+                <h2>
+                    Hacer una reserva
+                </h2>
+                <div class = "field_reserva">
+                    <label for="nom_ap2">Nombre y Apellidos:</label>
+                    <input type="text" id="nom_ap2" name="nom_ap2" required 
+                    placeholder="Nombre Apellido1 Apellido2*" 
+                    pattern="(^[A-ZÁÉÍÓÚ]{1}([a-zñáéíóú]+){1,})(\s[A-ZÁÉÍÓÚ]{1}([a-zñáéíóú]+){1,})(\s[A-ZÁÉÍÓÚ]{1}([a-zñáéíóú]+){0,})?$"
+                    autocomplete="name">
+                </div>
+                <div class = "field_reserva">
+                    <label for="telf2">Teléfono:</label>
+                    <input type="tel" id="telf2" name="telf2" required
+                    placeholder="923200014" pattern="[9,8]{1}[1-8]{1}[0-9]{7}"
+                    autocomplete="tel">
+                </div>
+                <div class = "field_reserva">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class = "field_reserva">
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" required>
+                </div>
+                <div class = "field_reserva">
+                    <label for="personas">Número de personas:</label>
+                    <input type="number" id="personas" name="personas" required
+                    placeholder="10 máximo" min="1" max="10">
+                </div>
+                <div class="botones">
+                    <div id="btn_cancelar_limpiar">
+                        <input type="reset" class="btn_limpiar" value="Limpiar campos">
+                    </div>
+                    <div>
+                        <input type="submit" class="btn_enviar">
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+   
+        <div class="col_imagenes">
+            <h1>Sobre nosotros</h1>
+            <div class="galeria">
+                <div class="carrusel" id="carrusel5" onmouseenter="showNavigation('carrusel5')" onmouseleave="hideNavigation('carrusel5')">
+                    <div class="img_con_desc">
+                        <div class="image-wraper">
+                            <a target="_blank" href="media/img/restaurante.jpg">
+                                <div class="numbertext">1 / 3</div>
+                                <img src="media/img/restaurante.jpg" alt="Foto del interior del restaurante">
+                            </a>    
+                        </div>
+                        <div class="desc">Local Acogedor</div>
+                    </div>
+                    <div class="img_con_desc">
+                            <div class="image-wraper">
+                                <a target="_blank" href="media/img/restaurante.jpeg">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img src="media/img/restaurante.jpeg" alt="Foto del interior del restaurante">
+                                </a>
+                            </div>
+                        <div class="desc">Local Acogedor</div>
+                    </div>
+                    <div class="img_con_desc">
+                            <div class="image-wraper">
+                                <a target="_blank" href="media/img/exterior.jpeg">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img src="media/img/exterior.jpeg" alt="Foto del exterior del restaurante">
+                                </a>
+                            </div>
+                        <div class="desc">Exterior impresionante</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1, 'carrusel5')">❮</a>
+                    <a class="next" onclick="plusSlides(1, 'carrusel5')">❯</a>
+                </div>
+
+                <div class="gmap">    
+                    <iframe title="Our Location"
+                        src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    
+    <div id="footer_container">
+        <footer>
+            <div id="icons_container">
+                <div class="icon">
+                    <a target="_blank" href="https://www.facebook.com">
+                        <img src="media/img/facebook.png" alt="Logo facebook">
+                    </a>
+                </div>
+                <div class="icon">
+                    <a target="_blank" href="https://instagram.com">
+                        <img src="media/img/instagram.png" alt="Logo instagram">
+                    </a>
+                </div>
+                <div class="icon">
+                    <a target="_blank" href="https://twitter.com">
+                        <img src="media/img/twitter.png" alt="Logo twitter">
+                    </a>
+                </div>
+            </div>
+            <div id="info_container">
+                <a target="_blank" href="http://example.com/">Política de privacidad</a>
+                <a href="tel:+1212-565-0000">+1 212-565-0000</a>
+            </div>
+        </footer>
+    </div>
+
+</body>

@@ -1,0 +1,27 @@
+SCOPE: global
+Function(name='mod', type='int', parameters=	a:int,
+	b:int,
+)
+Function(name='greatest_common_divisor', type='int', parameters=	a:int,
+	b:int,
+)
+Symbol(name='result', type='int', value='Unkown')
+
+SCOPE: mod
+Function(name='mod', type='int', parameters=	a:int,
+	b:int,
+)
+Symbol(name='a', type='int', value='Unkown')
+Symbol(name='b', type='int', value='Unkown')
+
+SCOPE: greatest_common_divisor
+Function(name='mod', type='int', parameters=	a:int,
+	b:int,
+)
+Function(name='greatest_common_divisor', type='int', parameters=	a:int,
+	b:int,
+)
+Symbol(name='a', type='int', value='Unkown')
+Symbol(name='b', type='int', value='Unkown')
+Symbol(name='temp', type=None, value='Unkown')
+

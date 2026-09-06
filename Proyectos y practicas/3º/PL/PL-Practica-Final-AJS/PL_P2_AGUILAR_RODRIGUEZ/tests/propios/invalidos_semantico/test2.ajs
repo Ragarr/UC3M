@@ -1,0 +1,13 @@
+let a: Persona; // persona not defined
+
+type Persona = {
+    nombre: character,
+    edad: int,
+    sexo: character
+};
+
+a = {
+    nombre: 'J',
+    edad: 30,
+    sexo: 'M'
+}; // a not defined

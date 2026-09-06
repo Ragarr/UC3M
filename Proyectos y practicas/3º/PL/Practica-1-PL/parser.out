@@ -1,0 +1,325 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> file
+Rule 1     file -> object
+Rule 2     file -> lambda
+Rule 3     lambda -> <empty>
+Rule 4     object -> L_BRACKET content R_BRACKET
+Rule 5     content -> KEY value
+Rule 6     content -> KEY value COMMA content
+Rule 7     content -> lambda
+Rule 8     value -> object
+Rule 9     value -> expr
+Rule 10    value -> list
+Rule 11    value -> STRING
+Rule 12    value -> BOOL
+Rule 13    value -> NULL
+Rule 14    value -> NUMBER
+Rule 15    expr -> NUMBER COMPARATOR NUMBER
+Rule 16    list -> L_SQ_BRACKET list_content R_SQ_BRACKET
+Rule 17    list_content -> object
+Rule 18    list_content -> object COMMA list_content
+Rule 19    list_content -> lambda
+
+Terminals, with rules where they appear
+
+BOOL                 : 12
+COMMA                : 6 18
+COMPARATOR           : 15
+KEY                  : 5 6
+L_BRACKET            : 4
+L_SQ_BRACKET         : 16
+NULL                 : 13
+NUMBER               : 14 15 15
+R_BRACKET            : 4
+R_SQ_BRACKET         : 16
+STRING               : 11
+error                : 
+
+Nonterminals, with rules where they appear
+
+content              : 4 6
+expr                 : 9
+file                 : 0
+lambda               : 2 7 19
+list                 : 10
+list_content         : 16 18
+object               : 1 8 17 18
+value                : 5 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . file
+    (1) file -> . object
+    (2) file -> . lambda
+    (4) object -> . L_BRACKET content R_BRACKET
+    (3) lambda -> .
+
+    L_BRACKET       shift and go to state 4
+    $end            reduce using rule 3 (lambda -> .)
+
+    file                           shift and go to state 1
+    object                         shift and go to state 2
+    lambda                         shift and go to state 3
+
+state 1
+
+    (0) S' -> file .
+
+
+
+state 2
+
+    (1) file -> object .
+
+    $end            reduce using rule 1 (file -> object .)
+
+
+state 3
+
+    (2) file -> lambda .
+
+    $end            reduce using rule 2 (file -> lambda .)
+
+
+state 4
+
+    (4) object -> L_BRACKET . content R_BRACKET
+    (5) content -> . KEY value
+    (6) content -> . KEY value COMMA content
+    (7) content -> . lambda
+    (3) lambda -> .
+
+    KEY             shift and go to state 6
+    R_BRACKET       reduce using rule 3 (lambda -> .)
+
+    content                        shift and go to state 5
+    lambda                         shift and go to state 7
+
+state 5
+
+    (4) object -> L_BRACKET content . R_BRACKET
+
+    R_BRACKET       shift and go to state 8
+
+
+state 6
+
+    (5) content -> KEY . value
+    (6) content -> KEY . value COMMA content
+    (8) value -> . object
+    (9) value -> . expr
+    (10) value -> . list
+    (11) value -> . STRING
+    (12) value -> . BOOL
+    (13) value -> . NULL
+    (14) value -> . NUMBER
+    (4) object -> . L_BRACKET content R_BRACKET
+    (15) expr -> . NUMBER COMPARATOR NUMBER
+    (16) list -> . L_SQ_BRACKET list_content R_SQ_BRACKET
+
+    STRING          shift and go to state 13
+    BOOL            shift and go to state 14
+    NULL            shift and go to state 15
+    NUMBER          shift and go to state 16
+    L_BRACKET       shift and go to state 4
+    L_SQ_BRACKET    shift and go to state 17
+
+    value                          shift and go to state 9
+    object                         shift and go to state 10
+    expr                           shift and go to state 11
+    list                           shift and go to state 12
+
+state 7
+
+    (7) content -> lambda .
+
+    R_BRACKET       reduce using rule 7 (content -> lambda .)
+
+
+state 8
+
+    (4) object -> L_BRACKET content R_BRACKET .
+
+    $end            reduce using rule 4 (object -> L_BRACKET content R_BRACKET .)
+    COMMA           reduce using rule 4 (object -> L_BRACKET content R_BRACKET .)
+    R_BRACKET       reduce using rule 4 (object -> L_BRACKET content R_BRACKET .)
+    R_SQ_BRACKET    reduce using rule 4 (object -> L_BRACKET content R_BRACKET .)
+
+
+state 9
+
+    (5) content -> KEY value .
+    (6) content -> KEY value . COMMA content
+
+    R_BRACKET       reduce using rule 5 (content -> KEY value .)
+    COMMA           shift and go to state 18
+
+
+state 10
+
+    (8) value -> object .
+
+    COMMA           reduce using rule 8 (value -> object .)
+    R_BRACKET       reduce using rule 8 (value -> object .)
+
+
+state 11
+
+    (9) value -> expr .
+
+    COMMA           reduce using rule 9 (value -> expr .)
+    R_BRACKET       reduce using rule 9 (value -> expr .)
+
+
+state 12
+
+    (10) value -> list .
+
+    COMMA           reduce using rule 10 (value -> list .)
+    R_BRACKET       reduce using rule 10 (value -> list .)
+
+
+state 13
+
+    (11) value -> STRING .
+
+    COMMA           reduce using rule 11 (value -> STRING .)
+    R_BRACKET       reduce using rule 11 (value -> STRING .)
+
+
+state 14
+
+    (12) value -> BOOL .
+
+    COMMA           reduce using rule 12 (value -> BOOL .)
+    R_BRACKET       reduce using rule 12 (value -> BOOL .)
+
+
+state 15
+
+    (13) value -> NULL .
+
+    COMMA           reduce using rule 13 (value -> NULL .)
+    R_BRACKET       reduce using rule 13 (value -> NULL .)
+
+
+state 16
+
+    (14) value -> NUMBER .
+    (15) expr -> NUMBER . COMPARATOR NUMBER
+
+    COMMA           reduce using rule 14 (value -> NUMBER .)
+    R_BRACKET       reduce using rule 14 (value -> NUMBER .)
+    COMPARATOR      shift and go to state 19
+
+
+state 17
+
+    (16) list -> L_SQ_BRACKET . list_content R_SQ_BRACKET
+    (17) list_content -> . object
+    (18) list_content -> . object COMMA list_content
+    (19) list_content -> . lambda
+    (4) object -> . L_BRACKET content R_BRACKET
+    (3) lambda -> .
+
+    L_BRACKET       shift and go to state 4
+    R_SQ_BRACKET    reduce using rule 3 (lambda -> .)
+
+    list_content                   shift and go to state 20
+    object                         shift and go to state 21
+    lambda                         shift and go to state 22
+
+state 18
+
+    (6) content -> KEY value COMMA . content
+    (5) content -> . KEY value
+    (6) content -> . KEY value COMMA content
+    (7) content -> . lambda
+    (3) lambda -> .
+
+    KEY             shift and go to state 6
+    R_BRACKET       reduce using rule 3 (lambda -> .)
+
+    content                        shift and go to state 23
+    lambda                         shift and go to state 7
+
+state 19
+
+    (15) expr -> NUMBER COMPARATOR . NUMBER
+
+    NUMBER          shift and go to state 24
+
+
+state 20
+
+    (16) list -> L_SQ_BRACKET list_content . R_SQ_BRACKET
+
+    R_SQ_BRACKET    shift and go to state 25
+
+
+state 21
+
+    (17) list_content -> object .
+    (18) list_content -> object . COMMA list_content
+
+    R_SQ_BRACKET    reduce using rule 17 (list_content -> object .)
+    COMMA           shift and go to state 26
+
+
+state 22
+
+    (19) list_content -> lambda .
+
+    R_SQ_BRACKET    reduce using rule 19 (list_content -> lambda .)
+
+
+state 23
+
+    (6) content -> KEY value COMMA content .
+
+    R_BRACKET       reduce using rule 6 (content -> KEY value COMMA content .)
+
+
+state 24
+
+    (15) expr -> NUMBER COMPARATOR NUMBER .
+
+    COMMA           reduce using rule 15 (expr -> NUMBER COMPARATOR NUMBER .)
+    R_BRACKET       reduce using rule 15 (expr -> NUMBER COMPARATOR NUMBER .)
+
+
+state 25
+
+    (16) list -> L_SQ_BRACKET list_content R_SQ_BRACKET .
+
+    COMMA           reduce using rule 16 (list -> L_SQ_BRACKET list_content R_SQ_BRACKET .)
+    R_BRACKET       reduce using rule 16 (list -> L_SQ_BRACKET list_content R_SQ_BRACKET .)
+
+
+state 26
+
+    (18) list_content -> object COMMA . list_content
+    (17) list_content -> . object
+    (18) list_content -> . object COMMA list_content
+    (19) list_content -> . lambda
+    (4) object -> . L_BRACKET content R_BRACKET
+    (3) lambda -> .
+
+    L_BRACKET       shift and go to state 4
+    R_SQ_BRACKET    reduce using rule 3 (lambda -> .)
+
+    object                         shift and go to state 21
+    list_content                   shift and go to state 27
+    lambda                         shift and go to state 22
+
+state 27
+
+    (18) list_content -> object COMMA list_content .
+
+    R_SQ_BRACKET    reduce using rule 18 (list_content -> object COMMA list_content .)
+

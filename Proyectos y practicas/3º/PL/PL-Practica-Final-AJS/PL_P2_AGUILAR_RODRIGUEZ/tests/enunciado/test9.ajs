@@ -1,0 +1,10 @@
+5.1 * 41.; // ok
+let c = 'c' + 'c'; // no puedes operar caracteres
+let i = 1 + c; // no puedes operar caracteres
+
+let err1 = 5.0 * ('d' < 8); // semantic error 
+
+// sintax error if requiere boolean
+if (5/7){
+    err = 'N';
+}

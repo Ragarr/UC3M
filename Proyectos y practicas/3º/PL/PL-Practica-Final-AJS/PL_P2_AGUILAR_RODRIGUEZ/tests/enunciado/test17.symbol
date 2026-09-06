@@ -1,0 +1,13 @@
+SCOPE: global
+Type(name='Point', attributes={'x': 'int', 'y': 'int'}
+)
+Function(name='get_point_after_jump', type='Point', parameters=	point:Point,
+)
+
+SCOPE: get_point_after_jump
+Type(name='Point', attributes={'x': 'int', 'y': 'int'}
+)
+Function(name='get_point_after_jump', type='Point', parameters=	point:Point,
+)
+Symbol(name='point', type='Point', value='Unkown')
+

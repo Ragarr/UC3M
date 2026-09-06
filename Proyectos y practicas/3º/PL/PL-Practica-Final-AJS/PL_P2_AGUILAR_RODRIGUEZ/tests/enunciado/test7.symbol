@@ -1,0 +1,5 @@
+SCOPE: global
+Symbol(name='a', type='NUMBER_VALUE', value=10)
+Symbol(name='b', type='NUMBER_VALUE', value=12.12)
+Symbol(name='x', type='NUMBER_VALUE', value=22.119999999999997)
+

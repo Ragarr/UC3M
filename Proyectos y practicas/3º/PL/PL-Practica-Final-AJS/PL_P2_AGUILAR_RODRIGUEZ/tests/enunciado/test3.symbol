@@ -1,0 +1,7 @@
+SCOPE: global
+Symbol(name='c', type='CHAR_VALUE', value='$')
+Symbol(name='b', type='BOOL_VALUE', value=True)
+Symbol(name='a', type='NUMBER_VALUE', value=10)
+Symbol(name='e', type=None, value='Unkown')
+Symbol(name='d', type='NUMBER_VALUE', value=0.1133333333333585)
+

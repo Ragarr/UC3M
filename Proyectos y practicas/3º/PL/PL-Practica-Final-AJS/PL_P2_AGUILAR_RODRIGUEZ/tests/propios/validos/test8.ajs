@@ -1,0 +1,24 @@
+let a = tr;
+let b = fl;
+
+let num = 0;
+
+if (a || b){
+    num = 1;
+} else {
+    num = 0;
+}
+
+if (num == 1){
+    num = 2;
+} else {
+    num = 3;
+}
+
+if (num + 2 < num +1){
+    num = 4;
+} else {
+    num = 5;
+}
+
+// num deberia ser 5

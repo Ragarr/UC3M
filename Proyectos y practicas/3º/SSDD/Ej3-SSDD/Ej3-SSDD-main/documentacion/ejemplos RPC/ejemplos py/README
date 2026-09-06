@@ -1,0 +1,9 @@
+intall:
+
+pip install rpyc
+
+execute server
+
+/usr/local/bin/rpyc_classic.py
+
+

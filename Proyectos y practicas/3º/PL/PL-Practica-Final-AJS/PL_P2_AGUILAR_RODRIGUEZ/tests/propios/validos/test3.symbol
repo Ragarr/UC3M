@@ -1,0 +1,16 @@
+SCOPE: global
+Symbol(name='boolA', type='BOOL_VALUE', value=True)
+Symbol(name='boolB', type='BOOL_VALUE', value=False)
+Symbol(name='boolC', type='BOOL_VALUE', value=False)
+Symbol(name='boolD', type='BOOL_VALUE', value=True)
+Symbol(name='boolE', type='BOOL_VALUE', value=False)
+Symbol(name='boolF', type='BOOL_VALUE', value=True)
+Symbol(name='boolG', type='BOOL_VALUE', value=False)
+Symbol(name='compA', type='NUMBER_VALUE', value=1)
+Symbol(name='compB', type='NUMBER_VALUE', value=2)
+Symbol(name='compC', type='BOOL_VALUE', value=False)
+Symbol(name='compE', type='BOOL_VALUE', value=True)
+Symbol(name='compF', type='BOOL_VALUE', value=False)
+Symbol(name='compG', type='BOOL_VALUE', value=True)
+Symbol(name='compH', type='BOOL_VALUE', value=False)
+

@@ -1,0 +1,151 @@
+## ejecutar al inicio
+
+```{r}
+## Cargar paquetes
+library(readr)
+library(vctrs)
+library(ggplot2)
+## Cargar datos
+data <- read_csv("Data.csv")
+```
+
+# ESTUDIO DESCRIPTIVO
+## resumen
+```{r}
+library(summarytools)
+descr(data$life_expect)
+descr(data$life_expect[data$status == "Developed"])
+descr(data$life_expect[data$status == "Developing"])
+descr(data$life_expect[data$year == 2013])
+```
+## matriz de relaciones
+### transformacion logaritmica de los datos numericos
+```{r}
+isnum <- unlist(lapply(data, is.numeric))
+data_num <- data[, isnum]
+data_num <- data_num[, -1]
+log_nums <- log(data_num)
+log_data <- data
+log_data[isnum][, -1] <- log_nums
+```
+### matriz de correlaciones
+```{r}
+library(vctrs)
+library(ggplot2)
+library(GGally)
+ggpairs(log_data[log_data$year == 2013, ],
+        columns = c(
+                "life_expect", "alcohol",
+                "age5-19obesity", "doctors", "gni_capita", "che_gdp",
+                "une_infant"
+        ), lower = list(continuous = "smooth"),
+        ggplot2::aes(colour = status)
+)
+```
+# AJUSTE DE DISTRIBUCIONES
+Búsqueda de una distribución de probabilidad de la variable “principal” a partir de los datos que permita  
+describir la población.
+## valores teoricos
+```{r}
+library(fitdistrplus)
+library(logspline)
+library(ggplot2)
+descdist(data$life_expect[data$year == 2013], boot = 200, discrete = FALSE)
+```
+## fits
+```{r}
+library(fitdistrplus)
+fw <- fitdist(data$life_expect[data$year == 2013], "weibull")
+fn <- fitdist(data$life_expect[data$year == 2013], "norm")
+fg <- fitdist(data$life_expect[data$year == 2013], "gamma")
+fln <- fitdist(data$life_expect[data$year == 2013], "lnorm")
+fu <- fitdist(data$life_expect[data$year == 2013], "unif")
+plot.legend <- c("Weibull", "Normal", "LogNormal")
+```
+## plots
+```{r}
+library(gridExtra)
+dists <- list(fw, fn, fln)
+dens<-denscomp(dists, plotstyle = "ggplot", legend = plot.legend) +
+        labs(title = "Histograma y densidades teoricas", x = "Life expectancy", y = "Densidad") +
+        geom_line(linetype = "dashed", size = 1)
+
+
+qq<-qqcomp(dists, legendtext = plot.legend, plotstyle = "ggplot") +
+        geom_point(size = 2, shape = 19, alpha = 0.7) +
+        labs(title = "Q-Q plot", x = "Cuantiles Teóricos", y = "Cuantiles Empíricos")
+
+cdf<-cdfcomp(dists, legendtext = plot.legend, plotstyle = "ggplot") +
+        geom_point(size = 2, shape = 19, alpha = 0.7) +
+        labs(title = "CDFs Teóricos y Empíricos", x = "data", y = "CDF")
+
+	
+
+pp<-ppcomp(dists, legendtext = plot.legend, plotstyle = "ggplot") +
+        geom_point(size = 2, shape = 19, alpha = 0.7) +
+        labs(title = "P-P plot", x = "Probabilidades teoricas", y = "Probabilidades Empíricas")
+
+grid.arrange(dens, qq, cdf, pp, ncol = 2)
+
+```
+## last tests
+```{r}
+install.packages("fitdistrplus")
+library(fitdistrplus)
+install.packages("stats")
+library(stats)
+shapiro.test(data$life_expect[data$year == 2013])
+media = mean(data$life_expect[data$year == 2013])
+dt = sd(data$life_expect[data$year == 2013])
+ks.test(data$life_expect[data$year == 2013], "pnorm",sd=dt, mean=media)
+```
+```{r}
+fn <- fitdist(data$life_expect[data$year == 2013], "norm")
+plot(fn,plotstyle = "ggplot")
+```
+```{r}
+library(dplyr)
+filtered <- data %>% filter(year == 2013, status == "Developed")
+meedia = mean(filtered$life_expect)
+dt = sd(filtered$life_expect)
+len= length(filtered$life_expect)
+```
+# Regresión múltiple
+```{r}
+model <- lm(life_expect ~ alcohol + che_gdp + doctors + une_infant, data = data)
+summary(model)
+par(mfrow = c(2, 2))
+plot(model)
+hist(model$residuals, probability = TRUE, xlab = "residuals")
+curve(dnorm(x, mean(model$residuals), sd(model$residuals)), lwd = 2, add = TRUE, yaxt="n", col="red")
+```
+ 
+#Intervalo de confianza
+```{r}
+#lo siguiente no funciona no se muy bien por qué
+alpha <- 0.05
+n <- length(data[data$year == 2013, data$status == "Developed"])
+xmean <- mean(data$life_expect[data$year == 2013, data$status == "Developed"])
+xsd <- sd(data$life_expect[data$year == 2013, data$status == "Developed"])
+#para países desarrollados
+alpha <- 0.05
+n <- 544
+xmean <- 78.71
+xsd <- 3.20
+z <- qnorm(alpha/2, lower.tail = FALSE)
+LowerLimit <- xmean - z * xsd / sqrt(n)
+UpperLimit <- xmean + z * xsd / sqrt(n)
+LowerLimit
+UpperLimit
+#para países en desarrollo
+alpha <- 0.05
+n <- 2567
+xmean <- 67.12
+xsd <- 8.68
+z <- qnorm(alpha/2, lower.tail = FALSE)
+
+LowerLimit <- xmean - z * xsd / sqrt(n)
+UpperLimit <- xmean + z * xsd / sqrt(n)
+LowerLimit
+UpperLimit
+```

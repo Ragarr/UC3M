@@ -1,0 +1,6 @@
+
+// Expresiones no válidas
+
+a+b = 3 +x;
+a || b = 3;
+

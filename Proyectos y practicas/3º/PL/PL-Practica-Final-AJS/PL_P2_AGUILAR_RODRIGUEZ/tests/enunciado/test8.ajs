@@ -1,0 +1,17 @@
+type TypeConversions = {
+    f1: float,
+    f2: float,
+    i: int,
+    b: boolean,
+};
+
+let t: TypeConversions = {
+    f1: 7.5, // OK: float -> float
+    f2: 0b11, // OK: int -> float
+    i: 'a', // OK: char -> int
+    b: tr
+};
+
+t.i = 7.5; // Error: float -> int
+t.b = 7; // Error: int -> boolean
+t.b = t["f1"]; // Error: float -> boolean

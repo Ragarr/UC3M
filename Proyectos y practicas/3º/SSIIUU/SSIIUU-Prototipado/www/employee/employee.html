@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página del Empleado</title>
+    <link rel="stylesheet" href="employee.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    <script src="employee.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="logo-block">
+                <a href="#" class="logo-link">
+                    <img src="/employee/media/eci-letras.png" alt="Logo" class="logo">
+                </a>
+                <h2 class="location">Preciados-Callao</h2>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1 class="title">Peticiones de Compra</h1>
+        <div id="peticiones-container">
+            <!-- Plantilla para peticiones de compra -->
+            <div class="peticion-template" style="display: none;">
+                <div class="peticion-header">
+                    <h2> Pedido: </h2>
+                </div>
+                <div class = "order-info">
+                    <h3>Informacion:</h3>
+                    <p>Metodo de pago: <span class = "payment-method"> </span> </p>
+                    <p>Formato de envio: <span class = "delivery-method"> </span> </p>
+                    <p>Precio total: <span class = "total-price"> </span>€ </p>
+                </div>
+                <div class="product">
+                    <p>Producto: <span class="product-name"></span></p>
+                    <p>Precio: <span class="product-price"></span> €</p>
+                    <p>Cantidad: <span class="product-quantity"></span></p>
+                </div>
+                <div class="petition-footer">
+                    <button type="button" class="btn-confirmar">Confirmar</button>
+                    <button type="button" class="btn-cancelar">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+</body>
+</html>

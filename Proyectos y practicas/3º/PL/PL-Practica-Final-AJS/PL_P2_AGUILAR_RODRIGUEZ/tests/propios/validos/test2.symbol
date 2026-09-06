@@ -1,0 +1,25 @@
+SCOPE: global
+Type(name='Direccion', attributes={'calle': 'character', 'numero': 'float'}
+)
+Type(name='Persona', attributes={   'direccion': Type(name='Direccion', attributes={'calle': 'character', 'numero': 'float'}
+),
+    'edad': 'int',
+    'nombre': 'character'}
+)
+Object(name='persona', type='Persona', attributes=[   Symbol(name='nombre', type='CHAR_VALUE', value='J'),
+    Symbol(name='edad', type='NUMBER_VALUE', value=30),
+    Object(name='direccion', type=None, attributes=[   Symbol(name='calle', type='CHAR_VALUE', value='A'),
+    Symbol(name='numero', type='NUMBER_VALUE', value=123)])])
+Object(name='c', type=None, attributes=[   Symbol(name='nombre', type='CHAR_VALUE', value='J'),
+    Symbol(name='edad', type='NUMBER_VALUE', value=30),
+    Object(name='direccion', type=None, attributes=[   Symbol(name='calle', type='CHAR_VALUE', value='B'),
+    Symbol(name='numero', type='NUMBER_VALUE', value=123)])])
+Object(name='b', type='Persona', attributes=[   Symbol(name='nombre', type='CHAR_VALUE', value='K'),
+    Symbol(name='edad', type='NUMBER_VALUE', value=30),
+    Object(name='direccion', type=None, attributes=[   Symbol(name='calle', type='CHAR_VALUE', value='A'),
+    Symbol(name='numero', type='NUMBER_VALUE', value=123)])])
+Object(name='a', type='Persona', attributes=[   Symbol(name='nombre', type='CHAR_VALUE', value='J'),
+    Symbol(name='edad', type='NUMBER_VALUE', value=30),
+    Object(name='direccion', type=None, attributes=[   Symbol(name='calle', type='CHAR_VALUE', value='A'),
+    Symbol(name='numero', type='NUMBER_VALUE', value=123)])])
+

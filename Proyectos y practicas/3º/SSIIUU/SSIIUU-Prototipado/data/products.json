@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Pixel 7A",
+        "price": 300,
+        "quantity": 1,
+        "image": "product1.jpeg",
+        "section": "Electrónica" 
+    },
+    {
+        "id": 2,
+        "name": "Lava Lamp",
+        "price": 25,
+        "quantity": 1,
+        "image": "product2.jpg",
+        "section": "Hogar"
+    },
+    {
+        "id": 3,
+        "name": "Lego Mclaren",
+        "price": 100,
+        "quantity": 1,
+        "image": "product3.jpg",
+        "section": "Juguetes y videojuegos" 
+    },
+    {
+        "id": 4,
+        "name": "Pala de Pádel",
+        "price": 40,
+        "quantity": 1,
+        "image": "product4.jpg",
+        "section": "Deportes"
+    },
+    {
+        "id": 5,
+        "name": "Sábana Xultra ProMax",
+        "price": 299.99,
+        "quantity": 1,
+        "image": "product5.jpg",
+        "section": "Hogar" 
+    },
+    {
+        "id": 6,
+        "name": "Crop-Top veraniego",
+        "price": 25,
+        "quantity": 1,
+        "image": "product6.jpg",
+        "section": "Mode"
+    },
+    {
+        "id": 7,
+        "name": "El Camino de los Reyes",
+        "price": 20,
+        "quantity": 1,
+        "image": "product7.jpg",
+        "section": "Libros" 
+    },
+    {
+        "id": 8,
+        "name": "Baraja española Heraclio Fournier",
+        "price": 9.99,
+        "quantity": 1,
+        "image": "product8.jpg",
+        "section": "Papelería"
+    },
+    {
+        "id": 9,
+        "name": "Bocadillo de atún",
+        "price": 7,
+        "quantity": 1,
+        "image": "product9.jpg",
+        "section": "Supermercado" 
+    },
+    {
+        "id": 10,
+        "name": "Pañales Dodot Sensitive",
+        "price": 20,
+        "quantity": 1,
+        "image": "product10.jpg",
+        "section": "Infantil"
+    }
+]

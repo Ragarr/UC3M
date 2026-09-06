@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Inemuri</title>
+    <!--LEAFLET-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+
+
+<body>
+    <h1 style="display: none;">Inemuri by Ragarr</h1>
+    <button id="help-btn">Help
+        <img src="media/help-icon.svg" alt="help" width="20" height="20">
+    </button>
+    <div id = "help-menu">
+        <img id = "close-help" src="media/close-icon.svg" alt="close" >
+        <h2>Help</h2>
+        <p>Double click on the map to add a marker</p>
+        <p>Click on a marker to remove it</p>
+        <p>Click in a circle to edit its radious and mute status</p>
+        <p>From this menu you can also remove the marker</p>
+        
+    </div>
+    <div id="map"></div>
+    <script src="script.js"></script>
+    
+</body>
+</html>

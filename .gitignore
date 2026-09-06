@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Entornos virtuales
+.venv/
+venv/
+
+# IDEs
+.idea/
+.vscode/
+
+# Binarios y artefactos compilados
+*.so
+# ...salvo la librería que proporciona la asignatura de SSOO
+!**/libparser.so
+*.o
+*.a
+*.exe
+*.class
+*.pkl
+
+# Obsidian: plugins y temas de terceros (se conserva la config *.json del vault)
+.obsidian/plugins/
+.obsidian/themes/
+
+# Ficheros temporales de ofimática y SO
+~$*
+.~lock.*#
+.DS_Store
+Thumbs.db

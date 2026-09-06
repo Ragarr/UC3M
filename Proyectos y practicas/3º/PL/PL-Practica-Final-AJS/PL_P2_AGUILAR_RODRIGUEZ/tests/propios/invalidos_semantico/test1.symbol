@@ -1,0 +1,4 @@
+SCOPE: global
+Symbol(name='a', type='NUMBER_VALUE', value=3)
+Symbol(name='b', type='BOOL_VALUE', value=True)
+

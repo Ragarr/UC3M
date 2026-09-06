@@ -1,0 +1,6 @@
+if (f2 == 3 || b1 && b2 || 10 - 5 * i1 >= 0xFF - 1e-1) {
+    f2 = f2 - 3;
+} else {
+    f2 = 10 - f1 * f1;
+}
+// no existe ninguna de las variables

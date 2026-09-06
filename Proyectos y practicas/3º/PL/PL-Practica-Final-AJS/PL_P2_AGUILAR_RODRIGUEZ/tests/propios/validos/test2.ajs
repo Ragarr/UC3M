@@ -1,0 +1,58 @@
+
+// OBJETOS
+type Direccion = {
+    calle: character,
+    numero: float,
+};
+
+type Persona = {
+    nombre: character,
+    edad: int,
+    direccion: Direccion,
+};
+
+let persona: Persona = {
+    nombre: 'J',
+    edad: 30,
+    "direccion": {
+        calle: 'A',
+        numero: 123
+    }
+};
+
+
+let a: Persona, b: Persona, c;
+
+a = {
+    nombre: 'J',
+    edad: 30,
+    direccion: {
+        calle: 'A',
+        numero: 123
+    }
+};
+
+b = {
+    nombre: 'J',
+    edad: 30,
+    direccion: {
+        calle: 'A',
+        numero: 123
+    }
+};
+
+c = {
+    nombre: 'J',
+    edad: 30,
+    direccion: {
+        calle: 'A',
+        numero: 123
+    }
+};
+
+b.nombre = 'K';
+
+c.direccion.calle = 'B';
+c.direccion["calle"] = 'B';
+c["direccion"]["calle"] = 'B';
+c["direccion"].calle = 'B';

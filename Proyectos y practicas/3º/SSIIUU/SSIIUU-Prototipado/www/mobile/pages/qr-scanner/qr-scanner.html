@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escanee el codigo del producto</title>
+    <link rel="stylesheet" href="qr-scanner.css">
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="nav-icons">
+            <div id="logo-block">
+              <a href="#"><img src="/mobile/media/eci-letras.png" class="logo" alt="logo"></a>
+              <h2 class = location > Preciados-callao</h2>
+            </div>
+            <div class="favouritesnprofile">
+              <a href="../favourites/favourites.html"><img src="/mobile/media/heart.svg" class="favourites" alt="Icono 1"></a>
+              <a href="../../mobile.html"><img src="/mobile/media/profile.svg" class="profile" alt="Icono 2"></a>
+            </div>
+          </div>
+        </nav>
+      </header>
+    
+    <main>
+      <div id = ask-popup>
+        <div id = ask-popup-content>
+            <p id = ask-popup-message> ... </p> <!-- el mensaje lo escribe js-->
+            <button id = "ask-popup-yes">Sí</button>
+            <button id = "ask-popup-no">No</button>
+        </div>
+      
+    </div>
+    <canvas id="canvas"></canvas>
+
+    </main>
+    <footer>
+        <nav>
+          <a href="../map/map.html"><img src="/mobile/media/map-icon.svg" alt="Icono 3"></a>
+          <a href=""><img id="scanner-icon"src="/mobile/media/scanner-icon.svg" alt="Icono 4"></a>
+          <a href="../cart/cart.html"><img src="/mobile/media/cart.svg" alt="Icono 5"></a>
+        </nav>
+      </footer>
+
+    <script src="jsQR.js"></script>
+    <script src="qr-scanner.js"></script>
+    <script src="/mobile/nfc_scanner.js"></script>
+</body>
+</html>

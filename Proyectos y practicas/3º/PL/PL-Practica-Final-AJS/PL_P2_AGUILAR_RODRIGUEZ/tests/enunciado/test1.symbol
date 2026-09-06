@@ -1,0 +1,22 @@
+SCOPE: global
+Type(name='NestedObject', attributes={'prop2': 'int', 'prop3': 'boolean', 'this is': 'character'}
+)
+Type(name='Object', attributes={   'nested': Type(name='NestedObject', attributes={'prop2': 'int', 'prop3': 'boolean', 'this is': 'character'}
+),
+    'prop1': 'float'}
+)
+Symbol(name='var4', type='NUMBER_VALUE', value=1.2e+24)
+Symbol(name='var3', type='CHAR_VALUE', value='N')
+Symbol(name='var2', type='NUMBER_VALUE', value=10)
+Object(name='var1', type='Object', attributes=[   Symbol(name='prop1', type='NUMBER_VALUE', value=1.0),
+    Object(name='nested', type=None, attributes=[   Symbol(name='this is', type='CHAR_VALUE', value='A'),
+    Symbol(name='prop2', type='NUMBER_VALUE', value=10),
+    Symbol(name='prop3', type='BOOL_VALUE', value=True)])])
+Function(name='gte', type='boolean', parameters=	a:int,
+	b:int,
+)
+
+SCOPE: gte
+Symbol(name='a', type='int', value='Unkown')
+Symbol(name='b', type='int', value='Unkown')
+

@@ -1,0 +1,6 @@
+let var1, VAR1, Var1;
+
+VAR1 = 10; // Ok: VAR1=(int, 10)
+VAR1 = tr; // Ok: la reasignación st -> VAR1=(boolean, True)
+
+let var1;

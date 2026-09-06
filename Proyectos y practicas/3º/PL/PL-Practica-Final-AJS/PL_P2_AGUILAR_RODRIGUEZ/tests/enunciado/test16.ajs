@@ -1,0 +1,18 @@
+function mod(a: int, b: int): int {
+    while (a >= b){
+        a = a - b;
+    }
+    return a;
+}
+
+function greatest_common_divisor(a: int, b: int): int {
+    let temp;
+    while (!(b == 0)) {
+        temp = b;
+        b = mod(a, b);
+        a = temp;
+    }
+    return a;
+}
+
+let result = greatest_common_divisor(132, 0xFF);
