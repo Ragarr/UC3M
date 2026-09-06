@@ -1,4 +1,5 @@
-Puede acceder a la web desde el siguiente [GitHub Page](https://ragarr.github.io/Lab1-Inemuri/)
+La GitHub Page donde estaba desplegada esta web ya no existe. Para probarla, abre
+[`index.html`](index.html) en el navegador — necesita permisos de geolocalización.
 
 
 # Nota

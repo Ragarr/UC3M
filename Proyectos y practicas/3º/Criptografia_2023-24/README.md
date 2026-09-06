@@ -232,5 +232,7 @@ Además ha sido necesario implementar algunos patrones de diseño como singleton
 
 
 <p>
-<a href="https://github.com/Ragarr/Criptografia_2023-24">https://github.com/Ragarr/Criptografia_2023-24</a>
+<a href="https://github.com/Ragarr/UC3M/tree/main/Proyectos%20y%20practicas/3%C2%BA/Criptografia_2023-24">Ragarr/UC3M &rarr; Proyectos y practicas/3&ordm;/Criptografia_2023-24</a>
+<br>
+<em>(el repositorio original e independiente ya no existe; el proyecto vive ahora en esta carpeta)</em>
 </p>

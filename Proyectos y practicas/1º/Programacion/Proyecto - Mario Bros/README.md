@@ -8,13 +8,13 @@ Se trata de una copia del primer nivel del mario bros original, hecho en python 
 **SUPER MARIO BROS**
  **POR CARLOS SEGUÍ  Y  RAÚL  AGUILAR**
 **MEMORIA**
-![portada](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/portada.png?raw=true)
+![portada](readme%20assets/portada.png)
 # Diseño de clases
 
 Hemos dividido cada clase en una carpeta, y cada subclase en un archivo dentro de dicha carpeta.
 
 Las clases se dividen en 6 superclases:
-![arbol de clases](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/estructura.png?raw=true)
+![arbol de clases](readme%20assets/estructura.png)
 - game
 - atrezzo
 - bloque
@@ -48,8 +48,8 @@ Son 5 metodos distintos encargados de crear una lista con las posiciones de los 
 Detecta las coordenadas del jugador para que en caso de llegue a la mitad de la pantalla llamara al método `desplazar_nivel()` para transmitir su movimiento a los demás objetos (modificando sus coordenadas) haciendo así que el nivel se mueva a su alrededor.
 
 ### Redondear
-![](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/FRAMING.PNG)
-![](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/NOT%20FARAMING.PNG)
+![](readme%20assets/FRAMING.PNG)
+![](readme%20assets/NOT%20FARAMING.PNG)
 Al trabajar con velocidades decimales obtenemos una mejor sensación de juego, como por ejemplo con las inercias, la suavidad del salto, etc. Sin embargo esto significa que existen las coordenadas decimales y al dibujarse se aproximan a enteros, el método ``round`` de Python presenta el problema de que no siempre aproxima igual, ej: ``round(1.5)=2`` y ``round(2.5)=2`` cuando desearíamos un resultado más consistente que redondeara siempre hacia abajo (o arriba) a partir del 0.5, por lo tanto creamos este método que haciendo uso de round y restando un número muy pequeño permite aproximar los valores de forma consistente evitando que se formen huecos que a pesar de ser únicamente visuales no son nada estéticos.
 
 Sin método redondear. Con método redondear.
@@ -67,19 +67,19 @@ Se encarga de borrar todos los elementos que desaparecen (bloques, objetos, npcs
 Son los elementos de fondo como montañas, nubes y arbustos. No tienen ningún tipo de colisión ni comportamiento, solo tienen estructura dividida en dos parámetros, su sprite y sus coordenadas.
 
 ## Bloques
-![](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/animacion-bloque.gif)
+![](readme%20assets/animacion-bloque.gif)
 
 Consta de 7 subclases; escalera, interrogación, ladrillo con monedas, ladrillo rompible, suelo y tubería. Todos los bloques tienen en común los atributos de coordenadas, coordenadas iniciales(se usa para animaciones), sprite, ancho, alto, velocidad en y y existe (un booleano que sirve como marca para los bloques que deben ser eliminados). Todos los bloques cuentan con el método reposicionar, que les permite desplazarse un máximo de dos pixeles en el eje y a partir de las coordenadas iniciales.
 
 ### Escalera y tubería
-![](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/TUBERIAS.png)
+![](readme%20assets/TUBERIAS.png)
 
 Se comportan igual, y lo único que tienen de especial es que tienen una altura variable que se debe introducir mediante un parámetro.
 
 En la imagen ambas son la misma clase tubería pero con alturas diferentes.
 
 ### Interrogación
-![](https://github.com/Ragarr/UC3M/blob/main/Proyectos%20y%20practicas/1%C2%BA/Programacion/Proyecto%20-%20Mario%20Bros/readme%20assets/interrogacion.png)
+![](readme%20assets/interrogacion.png)
 
 Tiene un parámetro que indica si tiene monedas u objetos, si tiene monedas otorga un numero al azar de ellas entre 1 y 6, además tiene unos frames de invulnerabilidad después de haber sido golpeado para no poder sacar todas las monedas de un solo salto, cuando se consumen todas las monedas cambia su sprite al de la derecha. Si tiene objetos otorgara una seta si lo golpea Mario o una flor de fuego si lo golpea Super Mario.
 
